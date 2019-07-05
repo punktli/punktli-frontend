@@ -1,1 +1,12 @@
-{{outlet}}
+<h1>Sign up to ➕PUNKTLI now</h1>
+<p>Start your 30 days trial now, no credit card required.</p>
+<div class="row">
+  <div class="col-md-6">
+    <BsForm @formLayout="vertical" @model={{this}} @onSubmit={{action "createAccountAndUser"}} as |form|>
+      <form.element @controlType="text" @label="Company" @placeholder="ACME inc." @property="company" />
+      <form.element @controlType="email" @label="Email" @placeholder="Email" @property="email" />
+      <form.element @controlType="password" @label="Password" @placeholder="Password" @property="password" @helpText="Minimum 6 characters" />
+      <BsButton @defaultText="Submit" @type="primary" @buttonType="submit" />
+    </BsForm>
+  </div>
+</div>
