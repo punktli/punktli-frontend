@@ -23,6 +23,12 @@
           </ddm.item>
         </dd.menu>
       </nav.dropdown>
+      {{#if session.isAuthenticated}}
+        {{this.currentUser.user.email}} <a {{action 'invalidateSession'}}>Logout</a>
+      {{else}}
+        <nav.item @linkTo="join">Sign up</nav.item>
+        <nav.item @linkTo="login">Login</nav.item>
+      {{/if}}
     </navbar.nav>
   </navbar.content>
 </BsNavbar>

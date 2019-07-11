@@ -20,10 +20,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      apiHostname: 'http://localhost:3000'
     }
   };
-
-  ENV.apiHostname = 'http://localhost:3000';
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

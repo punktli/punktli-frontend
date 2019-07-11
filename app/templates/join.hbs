@@ -4,9 +4,10 @@
   <div class="col-md-6">
     <BsForm @formLayout="vertical" @model={{this}} @onSubmit={{action "createAccountAndUser"}} as |form|>
       <form.element @controlType="text" @label="Company" @placeholder="ACME inc." @property="company" />
+      <form.element @controlType="text" @label="Your name" @placeholder="John Doe" @property="fullName" />
       <form.element @controlType="email" @label="Email" @placeholder="Email" @property="email" />
       <form.element @controlType="password" @label="Password" @placeholder="Password" @property="password" @helpText="Minimum 6 characters" />
-      <BsButton @defaultText="Submit" @type="primary" @buttonType="submit" />
+      <BsButton @defaultText="Join now" @type="primary" @buttonType="submit" />
     </BsForm>
   </div>
 </div>

@@ -1,0 +1,10 @@
+<h1>Login now</h1>
+<div class="row">
+  <div class="col-md-6">
+    <BsForm @formLayout="vertical" @model={{this}} @onSubmit={{action "login"}} as |form|>
+      <form.element @controlType="email" @label="Email" @placeholder="Email" @property="email" />
+      <form.element @controlType="password" @label="Password" @placeholder="Password" @property="password" @helpText="Minimum 6 characters" />
+      <BsButton @defaultText="Login" @type="primary" @buttonType="submit" />
+    </BsForm>
+  </div>
+</div>

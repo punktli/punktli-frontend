@@ -4,6 +4,7 @@ export default Controller.extend({
   actions: {
     createAccountAndUser() {
       alert('Test');
+
     }
   }
 });
