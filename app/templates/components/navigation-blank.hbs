@@ -1,0 +1,14 @@
+<BsNavbar
+  @type="light"
+  @backgroundColor="white"
+  @collapsed={{true}}
+  @onCollapse={{action (mut collapsed) true}}
+  @onExpand={{action (mut collapsed) false}} as |navbar|>
+  <div class="navbar-header">
+    {{navbar.toggle}}
+    {{!-- {{#link-to "index" class="navbar-brand"}}Brand{{/link-to}} --}}
+    <LinkTo @route="index" class="navbar-brand">
+      <img src="/assets/punktli-logo.svg" width="212" height="30" alt="">
+    </LinkTo>
+  </div>
+</BsNavbar>

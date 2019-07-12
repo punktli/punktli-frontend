@@ -6,11 +6,14 @@
   @onExpand={{action (mut collapsed) false}} as |navbar|>
   <div class="navbar-header">
     {{navbar.toggle}}
-    {{#link-to "index" class="navbar-brand"}}Brand{{/link-to}}
+    {{!-- {{#link-to "index" class="navbar-brand"}}Brand{{/link-to}} --}}
+    <LinkTo @route="index" class="navbar-brand">
+      <img src="/assets/punktli-logo.svg" width="212" height="30" alt="">
+    </LinkTo>
   </div>
   <navbar.content>
-    <navbar.nav as |nav|>
-      <nav.item @linkTo="index">Home</nav.item>
+    <navbar.nav class="mr-auto" as |nav|>
+      {{!-- <nav.item @linkTo="index">Home</nav.item>
       <nav.item @linkTo="index">Navbars</nav.item>
       <nav.dropdown as |dd|>
         <dd.toggle>Dropdown <span class="caret"></span></dd.toggle>
@@ -22,13 +25,11 @@
             {{#ddm.link-to "demo.navbars"}}Navbars{{/ddm.link-to}}
           </ddm.item>
         </dd.menu>
-      </nav.dropdown>
-      {{#if session.isAuthenticated}}
-        {{this.currentUser.user.email}} <a {{action 'invalidateSession'}}>Logout</a>
-      {{else}}
-        <nav.item @linkTo="join">Sign up</nav.item>
-        <nav.item @linkTo="login">Login</nav.item>
-      {{/if}}
+      </nav.dropdown> --}}
     </navbar.nav>
+    <form class="form-inline my-2 my-lg-0">
+      <LinkTo @route="login" class="btn btn-outline-secondary mr-2" role="button">Login</LinkTo>
+      <LinkTo @route="join" class="btn btn-primary" role="button">Join now</LinkTo>
+    </form>
   </navbar.content>
 </BsNavbar>

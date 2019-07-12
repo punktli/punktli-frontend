@@ -1,5 +1,5 @@
-<NavigationTop></NavigationTop>
+{{component (concat 'navigation-' this.navigation)}}
 <div id="main" class="container">
   {{outlet}}
-  <NavigationFooter></NavigationFooter>
+  <NavigationFooter @show={{showFooter}}></NavigationFooter>
 </div>

@@ -1,7 +1,7 @@
-<h1>Sign up to ➕PUNKTLI now</h1>
-<p>Start your 30 days trial now, no credit card required.</p>
-<div class="row">
+<div class="row justify-content-center">
   <div class="col-md-6">
+    <h1>Join <span class="punktli-logo">PUNKTLI</span> today</h1>
+    <p>Already registered? <LinkTo @route="login">Login</LinkTo></p>
     <BsForm @formLayout="vertical" @model={{this}} @onSubmit={{action "createAccountAndUser"}} as |form|>
       <form.element @controlType="text" @label="Company" @placeholder="ACME inc." @property="company" />
       <form.element @controlType="text" @label="Your name" @placeholder="John Doe" @property="fullName" />
