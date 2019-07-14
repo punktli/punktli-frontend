@@ -1,0 +1,14 @@
+<h1>New event</h1>
+<p>Complete the form below</p>
+<BsAlert
+  @visible={{this.isError}}
+  @fade={{true}}
+  @type="danger"
+  @dismissible={{true}}
+  @onDismissed={{action "closeAlert"}}>
+    {{{this.errorMessage}}}
+</BsAlert>
+<BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "createEvent"}} as |form|>
+  <form.element @controlType="text" @label="Name" @placeholder="Type the name of your event" @property="name" />
+  <BsButton @defaultText="Create your event" @type="primary" @buttonType="submit" />
+</BsForm>

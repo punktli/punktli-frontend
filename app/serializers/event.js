@@ -1,11 +1,5 @@
 import DS from 'ember-data';
+import ApplicationSerializer from './application';
 
-export default DS.JSONSerializer.extend({
-  serialize(snapshot, options) {
-    let json = this._super(...arguments);
-
-    json.event = json;
-
-    return json;
-  },
+export default ApplicationSerializer.extend({
 });

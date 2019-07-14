@@ -1,3 +1,8 @@
 <h1>Calendar</h1>
 <p>Welcome to your calendar my friend</p>
-{{outlet}}
+<LinkTo @route="event.new" class="btn btn-primary">New event</LinkTo>
+{{#each this.model as |event|}}
+  <div>
+    <LinkTo @route="event.details" @model={{event}}>{{event.name}}</LinkTo>
+  </div>
+{{/each}}

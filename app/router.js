@@ -9,6 +9,10 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('join');
   this.route('calendar');
+  this.route('event', { path: '/events' }, function() {
+    this.route('new');
+    this.route('details', {path: '/:event_id'});
+  });
   this.route('login');
   this.route('logout');
   this.route('patients');
