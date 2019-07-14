@@ -6,15 +6,15 @@
   @onExpand={{action (mut collapsed) false}} as |navbar|>
   <div class="navbar-header">
     {{navbar.toggle}}
-    {{!-- {{#link-to "index" class="navbar-brand"}}Brand{{/link-to}} --}}
     <LinkTo @route="index" class="navbar-brand">
       <img src="/assets/punktli-logo.svg" width="212" height="30" alt="">
     </LinkTo>
   </div>
   <navbar.content>
     <navbar.nav class="mr-auto" as |nav|>
-      {{!-- <nav.item @linkTo="index">Home</nav.item>
-      <nav.item @linkTo="index">Navbars</nav.item>
+      <nav.item @linkTo="calendar">Calendar</nav.item>
+      <nav.item @linkTo="index">Patients</nav.item>
+      {{!-- <nav.item @linkTo="index">Navbars</nav.item>
       <nav.dropdown as |dd|>
         <dd.toggle>Dropdown <span class="caret"></span></dd.toggle>
         <dd.menu as |ddm|>
@@ -27,13 +27,18 @@
         </dd.menu>
       </nav.dropdown> --}}
     </navbar.nav>
-    <form class="form-inline my-2 my-lg-0">
-      {{#if session.isAuthenticated}}
-        <LinkTo @route="calendar" class="btn btn-outline-secondary mr-2" role="button">Dashboard</LinkTo>
-      {{else}}
-        <LinkTo @route="login" class="btn btn-outline-secondary mr-2" role="button">Login</LinkTo>
-        <LinkTo @route="join" class="btn btn-primary" role="button">Join now</LinkTo>
-      {{/if}}
-    </form>
+    <navbar.nav as |nav|>
+      <nav.dropdown as |dd|>
+        <dd.toggle>{{currentUser.user.fullName}} <span class="caret"></span></dd.toggle>
+        <dd.menu as |ddm|>
+          <ddm.item>
+            {{#ddm.link-to "index"}}Home{{/ddm.link-to}}
+          </ddm.item>
+          <ddm.item>
+            {{#ddm.link-to "logout"}}Log out{{/ddm.link-to}}
+          </ddm.item>
+        </dd.menu>
+      </nav.dropdown>
+    </navbar.nav>
   </navbar.content>
 </BsNavbar>

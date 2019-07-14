@@ -9,6 +9,8 @@ import { inject as service } from '@ember/service';
 export default Base.extend({
   session: service(),
   restore(data) {
+    console.log('Restore the session');
+    console.log(data);
     return this._validate(data) ? Promise.resolve(data) : Promise.reject();
   },
 

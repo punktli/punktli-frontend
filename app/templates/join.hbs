@@ -2,8 +2,16 @@
   <div class="col-md-6">
     <h1>Join <span class="punktli-logo">PUNKTLI</span> today</h1>
     <p>Already registered? <LinkTo @route="login">Login</LinkTo></p>
-    <BsForm @formLayout="vertical" @model={{this}} @onSubmit={{action "createAccountAndUser"}} as |form|>
-      <form.element @controlType="text" @label="Company" @placeholder="ACME inc." @property="company" />
+    <BsAlert
+      @visible={{this.isError}}
+      @fade={{true}}
+      @type="danger"
+      @dismissible={{true}}
+      @onDismissed={{action "closeAlert"}}>
+        {{{this.errorMessage}}}
+    </BsAlert>
+    <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "createAccountAndUser"}} as |form|>
+      <form.element @controlType="text" @label="Company" @placeholder="ACME inc." @property="companyName" />
       <form.element @controlType="text" @label="Your name" @placeholder="John Doe" @property="fullName" />
       <form.element @controlType="email" @label="Email" @placeholder="Email" @property="email" />
       <form.element @controlType="password" @label="Password" @placeholder="Password" @property="password" @helpText="Minimum 6 characters" />

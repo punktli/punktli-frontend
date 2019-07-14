@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('join');
   this.route('calendar');
   this.route('login');
+  this.route('logout');
+  this.route('patients');
 });
 
 export default Router;

@@ -1,5 +1,13 @@
 <div class="row justify-content-center">
   <div class="col-md-6">
+    <BsAlert
+      @visible={{this.isError}}
+      @fade={{true}}
+      @type="danger"
+      @dismissible={{true}}
+      @onDismissed={{action "resetError"}}>
+        {{this.errorMessage.json.errors}}
+    </BsAlert>
     <h1>Log in to <span class="punktli-logo">PUNKTLI</span></h1>
     <BsForm @formLayout="vertical" @model={{this}} @onSubmit={{action "login"}} as |form|>
       <form.element @controlType="email" @label="Email" @placeholder="Email" @property="email" />

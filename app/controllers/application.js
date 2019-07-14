@@ -6,8 +6,5 @@ export default Controller.extend({
   navigation: 'top',
   showFooter: true,
   actions: {
-    invalidateSession() {
-      this.get('session').invalidate();
-    }
   }
 });

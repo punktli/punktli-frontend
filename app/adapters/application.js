@@ -29,4 +29,21 @@ export default DS.RESTAdapter.extend(DataAdapterMixin, {
   //   }
   //   return payload;
   // }
+  handleResponse(status, headers, payload) {
+
+    if (status == 422) {
+      if (isEmpty(payload.errors)) {
+        payload.errors = payload;
+      }
+    }
+
+    if (!isEmpty(headers['access-token']) && this.get('session').get('data.authenticated.data.access_token') && this.get('session').get('data.authenticated.data.access_token') !== headers['access-token']) {
+      this.get('session').set('data.authenticated.data.access_token', headers['access-token']);
+
+      //Temporary hack: session doesn't save new token in localstorage on its own, doing it here to force it
+      localStorage.setItem('ember_simple_auth-session', JSON.stringify(this.get('session').get('data')));
+    }
+
+    return payload;
+  }
 });

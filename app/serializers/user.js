@@ -1,11 +1,14 @@
 import DS from 'ember-data';
+import ApplicationSerializer from './application';
 
-export default DS.JSONSerializer.extend({
+export default ApplicationSerializer.extend({
   serialize(snapshot, options) {
     let json = this._super(...arguments);
 
-    json.user = json;
+    if (json.password) {
+      json.password_confirmation = json.password;
+    }
 
     return json;
-  },
+  }
 });
