@@ -1,0 +1,38 @@
+<h1>When is the event?</h1>
+<BsAlert
+  @visible={{this.isError}}
+  @fade={{true}}
+  @type="danger"
+  @dismissible={{true}}
+  @onDismissed={{action "closeAlert"}}>
+    {{{this.errorMessage}}}
+</BsAlert>
+<BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveEvent"}} as |form|>
+  <form.element @label="Start" @placeholder="Start" @property="startTime" as |el|>
+    {{ember-flatpickr
+      date=(readonly defaultStartTime)
+      enableTime=true
+      onChange=(action "setStartTime")
+      placeholder='Choose a Date'
+      shorthandCurrentMonth=true
+      time_24hr=true
+      weekNumbers=true
+      class="form-control"
+      dateFormat="d.m.Y H:i"
+    }}
+  </form.element>
+  <form.element @label="End" @placeholder="End" @property="endTime" as |el|>
+    {{ember-flatpickr
+      date=(readonly defaultEndTime)
+      enableTime=true
+      onChange=(action "setEndTime")
+      placeholder='Choose a Date'
+      shorthandCurrentMonth=true
+      time_24hr=true
+      weekNumbers=true
+      class="form-control"
+      dateFormat="d.m.Y H:i"
+    }}
+  </form.element>
+  <BsButton @defaultText="Create your event" @type="primary" @buttonType="submit" />
+</BsForm>

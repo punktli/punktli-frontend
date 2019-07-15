@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col">
+    <h1>Only a few steps before creating your event</h1>
+    <p>Add the details of your event so that you can save it.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    {{#if model.patient}}
+      <div class="row align-items-center">
+        <div class="col-auto mr-auto">
+          {{model.patient.fullName}}<br /><LinkTo @route="event.new.patient">Edit</LinkTo>
+        </div>
+        <div class="col-auto">
+          <img src="/assets/icons/check.svg" width="36" height="36" alt="Completed" aria-label="Completed" />
+        </div>
+      </div>
+    {{else}}
+      <h6>Step 1</h6>
+      <h3>Patient</h3>
+      <p>Select an existing patient or create a new one.</p>
+      <LinkTo @route="event.new.patient" class="btn btn-sm btn-secondary">Select a patient</LinkTo>
+    {{/if}}
+    <hr class="mv-3" />
+    <h6>Step 2</h6>
+    <h3>Category</h3>
+    <p>What type of event will it be?</p>
+    <LinkTo @route="index" class="btn btn-sm btn-secondary">Define a category</LinkTo>
+    <hr class="mv-3" />
+    {{#if model.startTime}}
+      <div class="row align-items-center">
+        <div class="col-auto mr-auto">
+          {{model.startTime}} - {{model.endTime}}<br /><LinkTo @route="event.new.schedule">Edit</LinkTo>
+        </div>
+        <div class="col-auto">
+          <img src="/assets/icons/check.svg" width="36" height="36" alt="Completed" aria-label="Completed" />
+        </div>
+      </div>
+    {{else}}
+      <h6>Step 3</h6>
+      <h3>Schedule</h3>
+      <p>When should your event happen?</p>
+      <LinkTo @route="event.new.schedule" class="btn btn-sm btn-secondary">Schedule your event</LinkTo>
+    {{/if}}
+    <hr class="mv-3" />
+  </div>
+</div>

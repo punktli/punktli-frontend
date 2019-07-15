@@ -10,7 +10,12 @@ Router.map(function() {
   this.route('join');
   this.route('calendar');
   this.route('event', { path: '/events' }, function() {
-    this.route('new');
+    this.route('new', function() {
+      this.route('patient');
+      this.route('wizard');
+      this.route('schedule');
+    });
+
     this.route('details', {path: '/:event_id'});
   });
   this.route('login');

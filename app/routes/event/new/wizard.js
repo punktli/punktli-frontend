@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Route.extend(AuthenticatedRouteMixin, {
   model() {
-    return this.get('store').createRecord('event');
+    return this.modelFor('event.new');
   },
   setupController(controller, model) {
     this._super(controller, model);
