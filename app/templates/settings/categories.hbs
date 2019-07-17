@@ -4,10 +4,12 @@
   {{#each model as |category|}}
     <div class="py-2 border-bottom">
       <BsForm @formLayout="inline" @model={{category}} @onSubmit={{action "saveCategory"}} as |form|>
+        <div class="form-row">
           <div class="col"><form.element @controlType="text" @label="" @placeholder="e.g. #EFEFEF" @property="color" /></div>
           <div class="col"><form.element @controlType="text" @label="" @placeholder="Name of your category" @property="name" /></div>
           <div class="col"><form.element @controlType="text" @label="" @placeholder="Duration in minutes" @property="duration" /></div>
           <div class="col"><BsButton @defaultText="Save" @type="secondary" @buttonType="submit" /></div>
+        </div>
       </BsForm>
     </div>
   {{/each}}

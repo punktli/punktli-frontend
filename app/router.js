@@ -20,7 +20,9 @@ Router.map(function() {
   });
   this.route('login');
   this.route('logout');
-  this.route('patients');
+  this.route('patients', function() {
+    this.route('new');
+  });
   this.route('settings', function() {
     this.route('categories');
   });
