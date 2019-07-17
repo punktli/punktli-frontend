@@ -3,13 +3,9 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Route.extend(AuthenticatedRouteMixin, {
   model() {
-    return this.modelFor('event.new');
+    return this.get('store').findAll('category');
   },
   setupController(controller, model) {
     this._super(controller, model);
-
-    // Implement your custom setup after
-    this.controllerFor('application').set('navigation', 'connected');
-    this.controllerFor('application').set('showFooter', false);
   }
 });

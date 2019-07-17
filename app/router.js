@@ -21,6 +21,9 @@ Router.map(function() {
   this.route('login');
   this.route('logout');
   this.route('patients');
+  this.route('settings', function() {
+    this.route('categories');
+  });
 });
 
 export default Router;

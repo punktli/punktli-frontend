@@ -8,5 +8,6 @@ export default Model.extend({
   endTime: DS.attr('date'),
   notes: DS.attr(),
   patient: DS.belongsTo(),
-  company: DS.belongsTo()
+  company: DS.belongsTo(),
+  category: DS.belongsTo()
 });

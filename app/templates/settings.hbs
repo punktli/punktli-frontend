@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-2">
+    <BsNav
+      @type="pills"
+      @justified={{false}}
+      @stacked={{true}}
+      @fill={{false}} as |nav|
+    >
+      <nav.item @linkTo="index">My account</nav.item>
+      <nav.item @linkTo="settings.categories">Categories</nav.item>
+      <nav.item @linkTo="index">Opening</nav.item>
+      <nav.item @linkTo="index">Billing</nav.item>
+    </BsNav>
+  </div>
+  <div class="col">
+    {{outlet}}
+  </div>
+</div>

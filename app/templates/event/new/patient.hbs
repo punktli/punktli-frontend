@@ -1,6 +1,5 @@
 <LinkTo @route="event.new">Back to your event</LinkTo>
 <h1>Your patients</h1>
 {{#each patients as |patient|}}
-  <p>{{patient.fullName}}</p>
   <PatientCard @patient={{patient}} onclick={{action "selectPatient" patient}}></PatientCard>
 {{/each}}
