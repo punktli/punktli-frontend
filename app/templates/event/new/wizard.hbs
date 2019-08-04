@@ -52,7 +52,7 @@
     {{#if model.startTime}}
       <div class="row align-items-center">
         <div class="col-auto mr-auto">
-          {{model.startTime}} - {{model.endTime}}<br /><LinkTo @route="event.new.schedule">Edit</LinkTo>
+          {{moment-format model.startTime 'D MMMM YYYY'}}<br />{{moment-format model.startTime 'HH:mm'}} - {{moment-format model.endTime 'HH:mm'}}<br /><LinkTo @route="event.new.schedule">Edit</LinkTo>
         </div>
         <div class="col-auto">
           <img src="/assets/icons/check.svg" width="36" height="36" alt="Completed" aria-label="Completed" />
