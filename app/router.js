@@ -14,6 +14,7 @@ Router.map(function() {
       this.route('patient');
       this.route('wizard');
       this.route('schedule');
+      this.route('category');
     });
 
     this.route('details', {path: '/:event_id'});

@@ -22,10 +22,32 @@
       <LinkTo @route="event.new.patient" class="btn btn-sm btn-secondary">Select a patient</LinkTo>
     {{/if}}
     <hr class="mv-3" />
-    <h6>Step 2</h6>
-    <h3>Category</h3>
-    <p>What type of event will it be?</p>
-    <LinkTo @route="index" class="btn btn-sm btn-secondary">Define a category</LinkTo>
+    {{#if model.category}}
+      <div class="row align-items-center">
+        <div class="col-auto mr-auto">
+          <div class="d-flex flex-row align-items-center align-self-center">
+            <div class="mr-1">
+              <div class="category-color rounded-circle" style="background-color: {{model.category.color}}"></div>
+            </div>
+            <div class="mx-1">
+              {{model.category.name}}
+            </div>
+            <div class="mx-1">
+              {{model.category.duration}} minutes
+            </div>
+          </div>
+          <div><LinkTo @route="event.new.category">Edit</LinkTo></div>
+        </div>
+        <div class="col-auto">
+          <img src="/assets/icons/check.svg" width="36" height="36" alt="Completed" aria-label="Completed" />
+        </div>
+      </div>
+    {{else}}
+      <h6>Step 2</h6>
+      <h3>Category</h3>
+      <p>What type of event will it be?</p>
+      <LinkTo @route="event.new.category" class="btn btn-sm btn-secondary">Define a category</LinkTo>
+    {{/if}}
     <hr class="mv-3" />
     {{#if model.startTime}}
       <div class="row align-items-center">

@@ -1,0 +1,10 @@
+<LinkTo @route="event.new.wizard">Back to your event</LinkTo>
+<h1>Your categories</h1>
+<LinkTo @route="settings.categories" @query={{hash returnURL="event.new.category"}} class="btn btn-secondary">Manage your categories</LinkTo>
+<div class="list-group">
+{{#each categories as |category|}}
+  <CategoryCard @category={{category}} href="#" onclick={{action "selectCategory" category}}></CategoryCard>
+{{else}}
+  No category yet, <LinkTo @route="settings.categories">go to your settings</LinkTo>.
+{{/each}}
+</div>
