@@ -51,7 +51,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
-    ENV.apiHost = process.env.API_URL;
+    ENV.APP.apiHostname = process.env.API_URL;
   }
 
   return ENV;
