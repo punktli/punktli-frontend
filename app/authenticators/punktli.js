@@ -5,8 +5,10 @@ import { Promise, reject, resolve } from 'rsvp';
 import { isEmpty } from '@ember/utils';
 import EmberObject from '@ember/object';
 import { inject as service } from '@ember/service';
+import ENV from 'punktli-frontend/config/environment';
 
 export default Base.extend({
+  host: ENV.APP.apiHostname,
   session: service(),
   restore(data) {
     console.log('Restore the session');
@@ -16,7 +18,7 @@ export default Base.extend({
 
   authenticate(credentials, headers) {
     console.log('PUNKTLI authenticator');
-    return this.makeRequest("http://localhost:3000/auth/sign_in", credentials, assign({}, this.headers, headers)).then(response => {
+    return this.makeRequest(`${this.host}/auth/sign_in`, credentials, assign({}, this.headers, headers)).then(response => {
 
       //response.json.data['access_token'] = response.headers.get('access-token');
       response.json.data.access_token = response.headers.get('access-token');
