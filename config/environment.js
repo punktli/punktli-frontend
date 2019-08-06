@@ -19,6 +19,11 @@ module.exports = function(environment) {
 
     moment: {
       outputFormat: 'L'
+
+    },
+
+    fastboot: {
+      hostWhitelist: ['punktli.com', 'www.punktli.com', 'staging.punktli.com', /^localhost:\d+$/]
     },
 
     APP: {
