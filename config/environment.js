@@ -18,7 +18,9 @@ module.exports = function(environment) {
     },
 
     moment: {
-      outputFormat: 'L'
+      includeTimezone: 'all',
+      outputFormat: 'L',
+      includeLocales: ['fr', 'de', 'it']
     },
 
     APP: {
