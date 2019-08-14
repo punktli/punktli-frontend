@@ -1,7 +1,10 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
+import { all } from 'rsvp';
 
 export default Controller.extend({
+  currentUser: service('current-user'),
   queryParams: ['day'],
   day: null,
   dayName: computed('day', function() {
@@ -23,7 +26,7 @@ export default Controller.extend({
     return name;
   }),
   filteredOpenings: computed('day', 'model', function() {
-    let day = this.day;
+    let day = parseInt(this.day);
     let openings = this.model;
 
     if (day) {
@@ -31,5 +34,27 @@ export default Controller.extend({
     } else {
       return openings;
     }
-  })
+  }),
+  actions: {
+    saveTimeInModel(obj, property, newTime) {
+      obj.set(property, newTime);
+    },
+    initNewSlot() {
+      this.store.createRecord('opening', {
+        day: parseInt(this.day),
+        startTime: '2001.01.01 00:00',
+        endTime: '2001.01.01 01:00',
+        company: this.currentUser.company
+      })
+    },
+    saveOpenings() {
+      const promises = [];
+      this.filteredOpenings.forEach((op) => {
+        promises.push(op.save());
+      });
+      all(promises).then(() => {
+        this.transitionToRoute('settings.openings');
+      });
+    }
+  }
 });
