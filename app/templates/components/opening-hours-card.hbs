@@ -1,0 +1,8 @@
+<h3>{{day}}</h3>
+{{#each openingHours as |opening|}}
+  <div class="opening-hours-schedules">
+    {{moment-format opening.startTime "HH:mm"}} - {{moment-format opening.endTime  "HH:mm"}}
+  </div>
+{{else}}
+  This day is off, yassss!
+{{/each}}
