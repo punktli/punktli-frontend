@@ -26,6 +26,7 @@ Router.map(function() {
   });
   this.route('settings', function() {
     this.route('categories');
+    this.route('openings');
   });
   this.route('directory');
 });

@@ -1,0 +1,21 @@
+<h1>Opening hours</h1>
+<div class="row">
+  <div class="col-sm-4 order-sm-1">
+    <OpeningHoursCard @day="Monday" @openingHours={{monday}} />
+  </div>
+  <div class="col-sm-4 order-sm-3">
+    <OpeningHoursCard @day="Tuesday" @openingHours={{tuesday}} />
+  </div>
+  <div class="col-sm-4 order-sm-5">
+    <OpeningHoursCard @day="Wednesday" @openingHours={{wednesday}} />
+    <OpeningHoursCard @day="Thursday" @openingHours={{thursday}} />
+    <OpeningHoursCard @day="Friday" @openingHours={{friday}} />
+  </div>
+  <div class="col-sm-4 order-sm-2 offset-sm-1">
+    <OpeningHoursCard @day="Saturday" @openingHours={{saturday}} />
+  </div>
+  <div class="col-sm-4 order-sm-4 offset-sm-1">
+    <OpeningHoursCard @day="Sunday" @openingHours={{sunday}} />
+  </div>
+  <div class="w-100 d-none d-sm-block"></div>
+</div>
