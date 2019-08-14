@@ -1,6 +1,12 @@
+@import "./_variables";
 @import "ember-bootstrap/bootstrap";
 @import "./typography";
 @import "./components/opening-hours-card";
+
+label {
+  font-size: $font-size-sm;
+  font-weight: 500;
+}
 
 #main {
   margin-top: 20px;
@@ -13,4 +19,8 @@
 .category-color {
   height: 12px;
   width: 12px;
+}
+
+.inline-svg {
+  margin-right: 5px;
 }
