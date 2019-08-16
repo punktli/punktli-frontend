@@ -7,6 +7,14 @@ export default Controller.extend({
   currentUser: service('current-user'),
   queryParams: ['day'],
   day: null,
+  isWorkingDay: computed('filteredOpenings', {
+    get(key) {
+      return this.filteredOpenings.length > 0;
+    },
+    set(key, value) {
+      return value;
+    }
+  }),
   dayName: computed('day', function() {
     let name = 'Monday';
     if (this.day === "2") {
@@ -50,6 +58,10 @@ export default Controller.extend({
     saveOpenings() {
       const promises = [];
       this.filteredOpenings.forEach((op) => {
+        if (!this.isWorkingDay) {
+          op.deleteRecord();
+        }
+
         promises.push(op.save());
       });
       all(promises).then(() => {
