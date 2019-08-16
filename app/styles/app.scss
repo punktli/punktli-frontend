@@ -7,6 +7,7 @@
 label {
   font-size: $font-size-sm;
   font-weight: 500;
+  margin-bottom: 5px;
 }
 
 #main {
@@ -72,4 +73,16 @@ label {
 
 .x-toggle:checked + label > .x-toggle-btn::after {
   left: 10px;
+}
+
+.btn-block-sm {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+@include media-breakpoint-up(sm) {
+  .btn-block-sm {
+    display: inline-block;
+    width: auto;
+  }
 }
