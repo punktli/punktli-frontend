@@ -1,6 +1,7 @@
 @import "./_variables";
 @import "ember-bootstrap/bootstrap";
 @import "./typography";
+@import "./components/nav";
 @import "./components/opening-hours-card";
 
 label {
@@ -10,6 +11,10 @@ label {
 
 #main {
   margin-top: 20px;
+}
+
+.container-sidebar {
+  max-width: 960px;
 }
 
 .punktli-logo {
