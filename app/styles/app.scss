@@ -16,6 +16,12 @@ label {
 
 .container-sidebar {
   max-width: 960px;
+  padding: 0px;
+}
+@include media-breakpoint-up(md) {
+  .container-sidebar {
+    padding: 0px;
+  }
 }
 
 .punktli-logo {

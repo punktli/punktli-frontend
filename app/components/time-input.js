@@ -14,7 +14,7 @@ export default Component.extend({
   }),
   actions: {
     saveTime() {
-      this.set("value", '2000-01-01 ' + this.formattedTime);
+      this.set("value", moment('2000-01-01 ' + this.formattedTime));
       this.focusOut(this.model, this.property, this.value);
     }
   }

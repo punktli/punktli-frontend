@@ -49,12 +49,21 @@ export default Controller.extend({
       obj.set(property, newTime);
     },
     initNewSlot() {
-      const lastSlot = this.filteredOpenings.get('lastObject');
+      let startTime, endTime;
+
+      //Defines the new time for the new slot, depeding if there're slots in the day or not
+      if (this.filteredOpenings.get('lastObject')) {
+        startTime = moment(this.filteredOpenings.get('lastObject').get('endTime')).add(1, 'hours');
+        endTime = moment(this.filteredOpenings.get('lastObject').get('endTime')).add(2, 'hours');
+      } else {
+        startTime = moment('2000-01-01 08:00');
+        endTime = moment('2000-01-01 12:00');
+      }
 
       this.store.createRecord('opening', {
         day: parseInt(this.day),
-        startTime: moment(lastSlot.get('endTime')).add(1, 'hours'),
-        endTime: moment(lastSlot.get('endTime')).add(2, 'hours'),
+        startTime: startTime,
+        endTime: endTime,
         company: this.currentUser.company
       });
     },
