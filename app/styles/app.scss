@@ -2,6 +2,7 @@
 @import "ember-bootstrap/bootstrap";
 @import "./typography";
 @import "./components/nav";
+@import "./components/top-bar";
 @import "./components/opening-hours-card";
 
 label {
@@ -11,7 +12,7 @@ label {
 }
 
 #main {
-  margin-top: 20px;
+  // margin-top: 20px;
 }
 
 .container-sidebar {

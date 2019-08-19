@@ -1,8 +1,13 @@
+.navbar {
+  border-bottom: 1px solid $gray-200;
+}
+
 .side-navigation {
   width: 200px;
   max-width: 200px;
   border-right: 1px solid $gray-200;
   height: calc(100vh - 86px);
+  padding-top: 20px;
 }
 .nav-pills .nav-link.active {
   background: none;
