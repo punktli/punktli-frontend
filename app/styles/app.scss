@@ -1,7 +1,28 @@
+@import "./_variables";
 @import "ember-bootstrap/bootstrap";
+@import "./typography";
+@import "./components/nav";
+@import "./components/top-bar";
+@import "./components/opening-hours-card";
+
+label {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
 
 #main {
-  margin-top: 20px;
+  // margin-top: 20px;
+}
+
+.container-sidebar {
+  max-width: 960px;
+  padding: 0px;
+}
+@include media-breakpoint-up(md) {
+  .container-sidebar {
+    padding: 0px;
+  }
 }
 
 .punktli-logo {
@@ -11,4 +32,64 @@
 .category-color {
   height: 12px;
   width: 12px;
+}
+
+.inline-svg {
+  margin-right: 5px;
+}
+
+.x-toggle-component {
+  justify-content: start;
+  margin-bottom: 20px;
+
+  .x-toggle-container.medium {
+    width: 51px;
+  }
+
+  .x-toggle-container {
+    padding: 0;
+
+    .x-toggle-light.x-toggle-btn {
+      background: $gray-200;
+    }
+
+    .medium {
+      width: 36px;
+      height: 24px;
+    }
+
+    .x-toggle-btn {
+      padding: 1px;
+    }
+  }
+
+  label {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  label > .x-toggle-btn::after {
+    width: 24px;
+  }
+}
+
+.x-toggle:checked + label > .x-toggle-light.x-toggle-btn {
+  background: $success;
+}
+
+.x-toggle:checked + label > .x-toggle-btn::after {
+  left: 10px;
+}
+
+.btn-block-sm {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+@include media-breakpoint-up(sm) {
+  .btn-block-sm {
+    display: inline-block;
+    width: auto;
+  }
 }

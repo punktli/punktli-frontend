@@ -18,7 +18,13 @@ module.exports = function(environment) {
     },
 
     moment: {
-      outputFormat: 'L'
+      includeTimezone: 'all',
+      outputFormat: 'L',
+      includeLocales: ['fr', 'de', 'it']
+    },
+
+    fastboot: {
+      hostWhitelist: ['punktli.com', 'www.punktli.com', 'staging.punktli.com', /^localhost:\d+$/]
     },
 
     APP: {
@@ -51,6 +57,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.APP.apiHostname = process.env.API_URL;
   }
 
   return ENV;

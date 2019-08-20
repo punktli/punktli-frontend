@@ -26,7 +26,10 @@ Router.map(function() {
   });
   this.route('settings', function() {
     this.route('categories');
+    this.route('openings');
+    this.route('openings-edit');
   });
+  this.route('directory');
 });
 
 export default Router;
