@@ -1,3 +1,18 @@
 h1 {
-  margin-bottom: 3rem;
+  margin-bottom: 30px;
+}
+
+h1.main {
+  margin-top: 20px;
+}
+
+h1.main-no-top-bar {
+  margin-top: 78px;
+}
+
+@include media-breakpoint-up(lg) {
+  h1.main {
+    margin-top: 60px;
+    margin-bottom: 50px;
+  }
 }

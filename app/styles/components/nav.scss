@@ -1,0 +1,59 @@
+.navbar {
+  border-bottom: 1px solid $gray-200;
+}
+
+.side-navigation {
+  width: 200px;
+  max-width: 200px;
+  border-right: 1px solid $gray-200;
+  height: calc(100vh - 86px);
+  padding-top: 20px;
+}
+.nav-pills .nav-link.active {
+  background: none;
+}
+
+a.nav-link {
+  color: $black;
+}
+
+.nav-link {
+  padding: 13px 0px;
+}
+
+.nav-link.nav-link.active {
+  color: $primary;
+}
+
+.nav-link::after {
+  content: url(/assets/icons/chevron-right.svg);
+  position: absolute;
+  right: 7px;
+}
+
+.nav-link.active::after {
+  content: url(/assets/icons/chevron-right-primary.svg);
+}
+
+.fixed-bottom {
+  padding: 0 1rem;
+  border-bottom: none;
+  .nav-link {
+    padding: 11px 0 12px 0;
+  }
+  a svg .shape {
+    fill: $black;
+  }
+
+  a.active svg .shape {
+    fill: $primary;
+  }
+
+  .nav-link::after {
+    content: none;
+  }
+
+  .nav-link.active::after {
+    content: none;
+  }
+}

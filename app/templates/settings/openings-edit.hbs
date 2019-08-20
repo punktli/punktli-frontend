@@ -1,36 +1,48 @@
-<h1>{{dayName}}</h1>
-{{#each filteredOpenings as |op|}}
-  <div class="d-flex">
-    <div class="mr-2">
-      <TimeInput @value={{op.startTime}} @label="From" @inputId={{concat "openingFrom" op.id}} @model={{op}} @property="startTime" @focusOut={{action "saveTimeInModel"}} />
-    </div>
-    <div class="align-self-end mr-2 mb-4">
-      <img src="/assets/icons/arrow-right.svg" width="24" height="24" />
-    </div>
-    <div class="mr-2">
-      <TimeInput @value={{op.endTime}} @label="To" @inputId={{concat "openingTp" op.id}} @model={{op}} @property="endTime" @focusOut={{action "saveTimeInModel"}} />
-    </div>
-    <div class="align-self-end mb-4">
-      <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <defs>
-              <path d="M12,23 C5.92486775,23 1,18.0751322 1,12 C1,5.92486775 5.92486775,1 12,1 C18.0751322,1 23,5.92486775 23,12 C23,18.0751322 18.0751322,23 12,23 Z M12,21 C16.9705627,21 21,16.9705627 21,12 C21,7.02943725 16.9705627,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 Z M8,13 C7.44771525,13 7,12.5522847 7,12 C7,11.4477153 7.44771525,11 8,11 L16,11 C16.5522847,11 17,11.4477153 17,12 C17,12.5522847 16.5522847,13 16,13 L8,13 Z" id="path-1"></path>
-          </defs>
-          <g id="⚙️-Settings" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g id="Settings/Opening-hours/Working" transform="translate(-282.000000, -230.000000)">
-                  <rect fill="#FFFFFF" x="0" y="0" width="320" height="568"></rect>
-                  <g id="Slot-1" transform="translate(15.000000, 200.000000)">
-                      <g id="minus-circle" transform="translate(266.000000, 29.000000)">
-                          <mask id="mask-2" fill="white">
-                              <use xlink:href="#path-1"></use>
-                          </mask>
-                          <use id="Combined-Shape" fill="#D60B0B" fill-rule="nonzero" xlink:href="#path-1"></use>
-                      </g>
-                  </g>
-              </g>
-          </g>
-      </svg>
-    </div>
+<TopBar>
+  <LinkTo @route="settings.openings"><img src="/assets/icons/x.svg" alt="" width="24" height="24"></LinkTo>
+</TopBar>
+<div class="row d-flex">
+  <div class="flex-grow-1 col">
+    <h1 class="main">{{dayName}}</h1>
   </div>
-{{/each}}
-<BsButton @type="secondary" @onClick={{action "initNewSlot"}}>Add a new slot</BsButton>
-<BsButton @type="primary" @onClick={{action "saveOpenings"}}>Save the opening hours</BsButton>
+  <div class="align-self-center">
+    <BsButton @type="primary" @onClick={{action "saveOpenings"}} class="d-none d-sm-block">Save the opening hours</BsButton>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <XToggle @value={{this.isWorkingDay}} @onToggle={{action (mut this.isWorkingDay)}} @showLabels={{true}} as |toggle|>
+      <toggle.switch @theme='light' @onLabel='diff on' @offLabel='diff off' />
+      <toggle.label>Working day</toggle.label>
+    </XToggle>
+    {{#if this.isWorkingDay}}
+    {{#each filteredOpenings as |op index|}}
+    <div class="d-flex">
+      <div class="mr-2">
+        <TimeInput @value={{op.startTime}} @label="From" @inputId={{concat "opening-from-" index}} @model={{op}}
+          @property="startTime" @focusOut={{action "saveTimeInModel"}} />
+      </div>
+      <div class="align-self-end mr-2 mb-4">
+        <img src="/assets/icons/arrow-right.svg" width="24" height="24" />
+      </div>
+      <div class="mr-2">
+        <TimeInput @value={{op.endTime}} @label="To" @inputId={{concat "opening-to-" index}} @model={{op}}
+          @property="endTime" @focusOut={{action "saveTimeInModel"}} />
+      </div>
+      <div class="align-self-end mb-4">
+        <DeleteButton @onClick={{action "deleteSlot" op}} />
+      </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <div class="row py-5">
+      <div class="col">
+        <p class="text-center"><img src="/assets/icons/sun.svg" alt="" width="48" height="48" /></p>
+        <p class="text-center">You're off, yasssss!</p>
+      </div>
+    </div>
+    {{/if}}
+    <BsButton @type="secondary" @onClick={{action "initNewSlot"}} class="btn-block-sm">Add a new slot</BsButton>
+    <BsButton @type="primary" @onClick={{action "saveOpenings"}} class="btn-block-sm d-sm-none">Save the opening hours</BsButton>
+  </div>
+</div>
