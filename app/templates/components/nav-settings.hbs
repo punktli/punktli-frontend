@@ -1,0 +1,16 @@
+{{#if this.isSide}}
+  <h3>Settings</h3>
+{{else}}
+  <h1 class="main-no-top-bar">Settings</h1>
+{{/if}}
+<BsNav
+  @type="pills"
+  @justified={{false}}
+  @stacked={{true}}
+  @fill={{false}} as |nav|
+>
+  <nav.item @linkTo="index">My account</nav.item>
+  <nav.item @linkTo="settings.categories">Categories</nav.item>
+  <nav.item @linkTo="settings.openings">Opening hours</nav.item>
+  <nav.item @linkTo="index">Billing</nav.item>
+</BsNav>
