@@ -40,9 +40,8 @@
     <BsButton @type="secondary" @onClick={{action "initNewSlot"}} class="btn-block-sm btn-tertiary">Add a new slot
     </BsButton>
     <div class="page-actions">
-      <BsButton @type="primary" @onClick={{action "saveOpenings"}} class="btn-block-sm d-sm-block">Save the opening
-        hours</BsButton>
-      <LinkTo @route="settings.openings" class="btn btn-tertiary d-none d-sm-inline-block">Cancel</LinkTo>
+      <BsButton @type="primary" @onClick={{action "saveOpenings"}} class="btn-block-sm d-sm-block mr-sm-2">Save the opening
+        hours</BsButton><LinkTo @route="settings.openings" class="btn btn-tertiary d-none d-sm-inline-block">Cancel</LinkTo>
     </div>
   </div>
 </div>
