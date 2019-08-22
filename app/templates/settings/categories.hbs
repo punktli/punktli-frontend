@@ -2,30 +2,7 @@
   <NavSettings class="col side-navigation align-items-stretch d-none d-lg-block" />
   <div class="col">
     <div class="container container-sidebar mx-auto">
-      <TopBar>
-        <LinkTo @route="settings"><img src="/assets/icons/arrow-left.svg" alt="" width="24" height="24"></LinkTo>
-      </TopBar>
-      <h1>Your categories</h1>
-      <p>Define the available cateogories for your events.</p>
-      <div class="row">
-        {{#each model as |category|}}
-          <div class="py-2 border-bottom">
-            <BsForm @formLayout="inline" @model={{category}} @onSubmit={{action "saveCategory"}} as |form|>
-              <div class="form-row">
-                <div class="col"><form.element @controlType="text" @label="" @placeholder="e.g. #EFEFEF" @property="color" /></div>
-                <div class="col"><form.element @controlType="text" @label="" @placeholder="Name of your category" @property="name" /></div>
-                <div class="col"><form.element @controlType="text" @label="" @placeholder="Duration in minutes" @property="duration" /></div>
-                <div class="col"><BsButton @defaultText="Save" @type="secondary" @buttonType="submit" /></div>
-              </div>
-            </BsForm>
-          </div>
-        {{/each}}
-      </div>
-      <div class="row">
-        <div class="col py-2">
-          <BsButton @type="secondary" @onClick={{action "openAddForm"}}>Add a new category</BsButton>
-        </div>
-      </div>
+      {{outlet}}
     </div>
   </div>
 </div>

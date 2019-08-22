@@ -25,7 +25,10 @@ Router.map(function() {
     this.route('new');
   });
   this.route('settings', function() {
-    this.route('categories');
+    this.route('categories', function() {
+      this.route('edit', { path: '/:category_id' });
+      this.route('new');
+    });
     this.route('openings', function() {
       this.route('edit');
     });

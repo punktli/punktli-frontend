@@ -1,0 +1,10 @@
+<BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "save"}} as |form|>
+  <form.element @controlType="text" @label="Color" @placeholder="e.g. #EFEFEF" @property="color" />
+  <form.element @controlType="text" @label="Name" @placeholder="Name of your category" @property="name" />
+  <form.element @controlType="text" @label="Duration in minutes" @placeholder="Duration in minutes" @property="duration" />
+  <div class="page-actions">
+    <BsButton @type="primary" @buttonType="submit" class="btn-block-sm d-sm-block mr-sm-2">Save the category
+    </BsButton>
+    <LinkTo @route="settings.categories" class="btn btn-tertiary d-none d-sm-inline-block">Cancel</LinkTo>
+  </div>
+</BsForm>
