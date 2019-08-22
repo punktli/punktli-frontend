@@ -1,6 +1,7 @@
 @import "./_variables";
 @import "ember-bootstrap/bootstrap";
 @import "./typography";
+@import "./components/button";
 @import "./components/nav";
 @import "./components/top-bar";
 @import "./components/opening-hours-card";
@@ -82,14 +83,6 @@ label {
   left: 10px;
 }
 
-.btn-block-sm {
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-}
-@include media-breakpoint-up(sm) {
-  .btn-block-sm {
-    display: inline-block;
-    width: auto;
-  }
+.page-actions {
+  margin-top: 30px;
 }

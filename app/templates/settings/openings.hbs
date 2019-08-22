@@ -2,30 +2,7 @@
   <NavSettings class="col side-navigation align-items-stretch d-none d-lg-block" />
   <div class="col">
     <div class="container container-sidebar mx-auto">
-      <TopBar>
-        <LinkTo @route="settings"><img src="/assets/icons/arrow-left.svg" alt="" width="24" height="24"></LinkTo>
-      </TopBar>
-      <h1 class="main">Opening hours</h1>
-      <div class="row">
-        <div class="col-lg-5 col-sm-6 order-sm-1">
-          <OpeningHoursCard @day=1 @dayName="Monday" @openingHours={{monday}} />
-        </div>
-        <div class="col-lg-5 col-sm-6 order-sm-3">
-          <OpeningHoursCard @day=2 @dayName="Tuesday" @openingHours={{tuesday}} />
-        </div>
-        <div class="col-lg-5 col-sm-6 order-sm-5">
-          <OpeningHoursCard @day=3 @dayName="Wednesday" @openingHours={{wednesday}} />
-          <OpeningHoursCard @day=4 @dayName="Thursday" @openingHours={{thursday}} />
-          <OpeningHoursCard @day=5 @dayName="Friday" @openingHours={{friday}} />
-        </div>
-        <div class="col-lg-5 col-sm-6 order-sm-2 offset-lg-1">
-          <OpeningHoursCard @day=6 @dayName="Saturday" @openingHours={{saturday}} />
-        </div>
-        <div class="col-lg-5 col-sm-6 order-sm-4 offset-lg-1">
-          <OpeningHoursCard @day=7 @dayName="Sunday" @openingHours={{sunday}} />
-        </div>
-        <div class="w-100 d-none d-sm-block"></div>
-      </div>
+      {{outlet}}
     </div>
   </div>
 </div>

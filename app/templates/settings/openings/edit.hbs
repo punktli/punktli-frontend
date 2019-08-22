@@ -1,17 +1,12 @@
+
 <TopBar>
   <LinkTo @route="settings.openings"><img src="/assets/icons/x.svg" alt="" width="24" height="24"></LinkTo>
 </TopBar>
-<div class="row d-flex">
-  <div class="flex-grow-1 col">
-    <h1 class="main">{{dayName}}</h1>
-  </div>
-  <div class="align-self-center">
-    <BsButton @type="primary" @onClick={{action "saveOpenings"}} class="d-none d-sm-block">Save the opening hours</BsButton>
-  </div>
-</div>
+<h1 class="main">{{dayName}}</h1>
 <div class="row">
   <div class="col">
-    <XToggle @value={{this.isWorkingDay}} @onToggle={{action (mut this.isWorkingDay)}} @showLabels={{true}} as |toggle|>
+    <XToggle @value={{this.isWorkingDay}} @onToggle={{action (mut this.isWorkingDay)}} @showLabels={{true}} as
+      |toggle|>
       <toggle.switch @theme='light' @onLabel='diff on' @offLabel='diff off' />
       <toggle.label>Working day</toggle.label>
     </XToggle>
@@ -42,7 +37,12 @@
       </div>
     </div>
     {{/if}}
-    <BsButton @type="secondary" @onClick={{action "initNewSlot"}} class="btn-block-sm">Add a new slot</BsButton>
-    <BsButton @type="primary" @onClick={{action "saveOpenings"}} class="btn-block-sm d-sm-none">Save the opening hours</BsButton>
+    <BsButton @type="secondary" @onClick={{action "initNewSlot"}} class="btn-block-sm btn-tertiary">Add a new slot
+    </BsButton>
+    <div class="page-actions">
+      <BsButton @type="primary" @onClick={{action "saveOpenings"}} class="btn-block-sm d-sm-block">Save the opening
+        hours</BsButton>
+      <LinkTo @route="settings.openings" class="btn btn-tertiary d-none d-sm-inline-block">Cancel</LinkTo>
+    </div>
   </div>
 </div>
