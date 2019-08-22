@@ -1,0 +1,5 @@
+<TopBar>
+  <LinkTo @route="settings.categories"><img src="/assets/icons/arrow-left.svg" alt="" width="24" height="24"></LinkTo>
+</TopBar>
+<h1 class="main">New category</h1>
+<CategoryForm @model={{this.model}} onSubmit={{action "saveCategory"}} />
