@@ -1,0 +1,6 @@
+.color-picker-option {
+  border: 2px solid $white;
+}
+.color-picker-option.selected {
+  border: 2px solid $dark;
+}
