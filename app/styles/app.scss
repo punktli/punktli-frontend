@@ -1,6 +1,7 @@
 @import "./_variables";
 @import "ember-bootstrap/bootstrap";
-@import "./typography";
+@import "./_typography";
+@import "./_colors";
 @import "./components/button";
 @import "./components/nav";
 @import "./components/top-bar";
