@@ -2,9 +2,9 @@ import Component from '@ember/component';
 import { computed } from '@ember/object'
 
 export default Component.extend({
-  tagName: 'a',
-  attributeBindings: ['href'],
-  href: '#',
+  // tagName: 'a',
+  // attributeBindings: ['href'],
+  // href: '#',
   classNames: ['color-picker-option', 'p-3', 'd-inline-block', 'rounded-circle'],
   classNameBindings: ['backgroundColor', 'status'],
   backgroundColor: computed('color', function() {
@@ -22,6 +22,8 @@ export default Component.extend({
       selectedColor = '#17a2b8';
     } else if (this.color == 'success') {
       selectedColor = '#0BD695';
+    } else if (this.color == 'purple') {
+      selectedColor = '#87159B';
     }
 
     return selectedColor;
