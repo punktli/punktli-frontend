@@ -32,6 +32,7 @@ export default Component.extend({
     return (this.colorValue == this.selectedColor ? 'selected' : '');
   }),
   click() {
+    alert('Click on one color');
     this.get('onClick')(this.colorValue);
   }
 });
