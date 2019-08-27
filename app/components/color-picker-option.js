@@ -2,9 +2,9 @@ import Component from '@ember/component';
 import { computed } from '@ember/object'
 
 export default Component.extend({
-  // tagName: 'a',
-  // attributeBindings: ['href'],
-  // href: '#',
+  tagName: 'button',
+  attributeBindings: ['type'],
+  type: 'button',
   classNames: ['color-picker-option', 'p-3', 'd-inline-block', 'rounded-circle'],
   classNameBindings: ['backgroundColor', 'status'],
   backgroundColor: computed('color', function() {
@@ -32,7 +32,6 @@ export default Component.extend({
     return (this.colorValue == this.selectedColor ? 'selected' : '');
   }),
   click() {
-    alert('Click on one color');
     this.get('onClick')(this.colorValue);
   }
 });

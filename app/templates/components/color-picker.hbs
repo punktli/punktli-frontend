@@ -1,5 +1,5 @@
 <div class="">
-  <ColorPickerOption @color="primary" @selectedColor={{this.value}} @onClick={{fn (mut this.value)}} />
+  <ColorPickerOption @color="primary" @selectedColor={{this.value}} @onClick={{fn (mut this.value) preventDefault=false}} />
 </div>
 <div class="">
   <ColorPickerOption @color="warning" @selectedColor={{this.value}} @onClick={{fn (mut this.value)}} />
