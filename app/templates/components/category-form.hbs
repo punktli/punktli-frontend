@@ -1,11 +1,21 @@
 <div class="row">
   <div class="col-lg-6">
+    <BsAlert
+      @visible={{this.isError}}
+      @fade={{true}}
+      @type="danger"
+      @dismissible={{true}}
+      @onDismissed={{fn (mut this.isError) false}}>
+        {{#each this.errors as |error|}}
+          {{{error}}}<br />
+        {{/each}}
+    </BsAlert>
     <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "save"}} as |form|>
       <form.element @controlType="text" @label="Color" @placeholder="e.g. #EFEFEF" @property="color" as |el|>
         <ColorPicker @value={{el.value}} />
       </form.element>
       <form.element @controlType="text" @label="Name" @placeholder="Name of your category" @property="name" />
-      <form.element @controlType="text" @label="Duration in minutes" @placeholder="Duration in minutes"
+      <form.element @controlType="number" @label="Duration in minutes" @placeholder="Duration in minutes"
         @property="duration" />
       <div class="page-actions">
         <BsButton @type="primary" @buttonType="submit" class="btn-block-sm d-sm-block mr-sm-2">Save the category

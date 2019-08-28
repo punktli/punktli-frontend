@@ -1,5 +1,41 @@
+<BsModal @open={{this.confirmArchiveModal}} @position="center" @onSubmit={{action "archiveCategory"}}
+  @onHidden={{action (mut confirmArchiveModal) false}} as |modal|>
+  <modal.header>
+    <h4 class="modal-title">Archive {{this.pageTitle}}</h4>
+  </modal.header>
+  <modal.body>
+    <p>If you click on Archive, your category will be archived and you won't be able to create new events in it anymore.
+      Existing events will remain unchanged.</p>
+  </modal.body>
+  <modal.footer>
+    <BsButton @type="danger" @onClick={{action modal.submit}}>Archive</BsButton>
+    <BsButton class="btn-tertiary" @onClick={{action modal.close}}>Cancel</BsButton>
+  </modal.footer>
+</BsModal>
 <TopBar>
-  <LinkTo @route="settings.categories"><img src="/assets/icons/arrow-left.svg" alt="" width="24" height="24"></LinkTo>
+  <div>
+    <LinkTo @route="settings.categories"><img src="/assets/icons/arrow-left.svg" alt="" width="24" height="24"></LinkTo>
+  </div>
+  <div>
+    <BsDropdown as |dd|>
+      <dd.toggle>
+        <img src="/assets/icons/more-vertical.svg" width="24" height="24" alt="More actions" />
+      </dd.toggle>
+      <dd.menu @align="right" as |menu|>
+        <menu.item>
+          <a href="#" {{action (mut confirmArchiveModal) true}}>Archive</a>
+        </menu.item>
+      </dd.menu>
+    </BsDropdown>
+  </div>
 </TopBar>
-<h1 class="main">{{this.pageTitle}}</h1>
-<CategoryForm @model={{this.model}} onSubmit={{action "saveCategory"}} />
+<div class="d-flex align-items-center justify-content-between">
+  <div>
+    <h1 class="main">{{this.pageTitle}}</h1>
+  </div>
+  <div>
+    <BsButton @type="danger" @outline={{true}} class="d-none d-lg-inline-block btn-sm"
+      @onClick={{action (mut confirmArchiveModal) true}}>Archive</BsButton>
+  </div>
+</div>
+<CategoryForm @model={{this.model}} @onSaveSuccess={{action "redirectToCategories"}} />

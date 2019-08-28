@@ -33,7 +33,7 @@ export default DS.RESTAdapter.extend(DataAdapterMixin, {
 
     if (status == 422) {
       if (isEmpty(payload.errors)) {
-        payload.errors = payload;
+        //payload.errors = payload;
       }
     }
 

@@ -6,7 +6,7 @@
   width: 200px;
   max-width: 200px;
   border-right: 1px solid $gray-200;
-  height: calc(100vh - 86px);
+  height: calc(100vh - 67px);
   padding-top: 20px;
 }
 .nav-pills .nav-link.active {
@@ -25,13 +25,13 @@ a.nav-link {
   color: $primary;
 }
 
-.nav-link::after {
+.nav-pills .nav-link::after {
   content: url(/assets/icons/chevron-right.svg);
   position: absolute;
   right: 7px;
 }
 
-.nav-link.active::after {
+.nav-pills .nav-link.active::after {
   content: url(/assets/icons/chevron-right-primary.svg);
 }
 
@@ -56,4 +56,8 @@ a.nav-link {
   .nav-link.active::after {
     content: none;
   }
+}
+
+.nav-link.dropdown-toggle::after {
+  content: none;
 }

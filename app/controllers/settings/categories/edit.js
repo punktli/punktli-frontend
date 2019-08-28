@@ -2,12 +2,17 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
   pageTitle: '',
+  confirmArchiveModal: false,
   actions: {
-    saveCategory() {
-      const _this = this;
-      this.model.save().then(function() {
-        _this.transitionToRoute('settings.categories');
-      })
+    redirectToCategories() {
+      this.transitionToRoute('settings.categories');
+    },
+    archiveCategory() {
+      this.set('model.isArchived', true);
+      this.model.save().then(() => {
+        this.set('confirmArchiveModal', false);
+        this.transitionToRoute('settings.categories');
+      });
     }
   }
 });
