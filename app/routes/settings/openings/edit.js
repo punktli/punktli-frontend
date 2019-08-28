@@ -12,5 +12,10 @@ export default Route.extend(AuthenticatedRouteMixin, {
   },
   setupController(controller, model) {
     this._super(controller, model);
+  },
+  deactivate() {
+    for (const opening of this.modelFor('settings.openings').get('content')) {
+      opening.rollbackAttributes();
+    }
   }
 });
