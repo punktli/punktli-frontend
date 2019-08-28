@@ -1,0 +1,11 @@
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.modal .close span {
+  content: url(/assets/icons/x.svg);
+}

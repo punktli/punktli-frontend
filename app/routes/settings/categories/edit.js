@@ -9,5 +9,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
     this._super(controller, model);
 
     controller.set('pageTitle', model.name);
+  },
+  deactivate() {
+    this.get('currentModel').rollbackAttributes();
   }
 });
