@@ -58,6 +58,11 @@ a.nav-link {
   }
 }
 
+.nav-item.dropdown .dropdown-menu {
+  right: 0;
+  left: unset;
+}
+
 .nav-link.dropdown-toggle::after {
   content: none;
 }

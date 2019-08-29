@@ -1,5 +1,7 @@
 @import "./_variables";
 @import "ember-bootstrap/bootstrap";
+@import "ember-power-select/themes/bootstrap";
+@import "ember-power-select";
 @import "./_typography";
 @import "./_colors";
 @import "./components/button";
@@ -8,6 +10,7 @@
 @import "./components/top-bar";
 @import "./components/color-picker";
 @import "./components/opening-hours-card";
+@import "./components/power-select";
 
 label {
   font-size: $font-size-sm;

@@ -32,6 +32,7 @@ Router.map(function() {
     this.route('openings', function() {
       this.route('edit');
     });
+    this.route('regional');
   });
   this.route('directory');
 });
