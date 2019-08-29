@@ -1,0 +1,12 @@
+<div class="row">
+  <NavSettings class="col side-navigation align-items-stretch d-none d-lg-block" />
+  <div class="col">
+    <div class="container container-sidebar mx-auto">
+      <TopBar>
+        <LinkTo @route="settings"><img src="/assets/icons/arrow-left.svg" alt="" width="24" height="24"></LinkTo>
+      </TopBar>
+      <h1 class="main">Regional settings</h1>
+      <RegionalSettingsForm @model={{this.model}} />
+    </div>
+  </div>
+</div>

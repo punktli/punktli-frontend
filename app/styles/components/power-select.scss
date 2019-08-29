@@ -1,0 +1,8 @@
+.ember-power-select-trigger {
+  height: calc(1.5em + 0.75rem + 2px);
+  line-height: 2.2rem;
+}
+
+.ember-power-select-selected-item, .ember-power-select-placeholder {
+  margin-left: 0.75rem !important;
+}

@@ -1,0 +1,15 @@
+<BsForm @model={{this.model}} @onSubmit={{action "saveRegionalSettings"}} as |form|>
+  <div class="form-group">
+    <label for="countrySelect">Country</label>
+    <PowerSelect
+      @options={{this.countries}}
+      @selected={{this.selectedCountry}}
+      @searchField="name"
+      @onchange={{action 'changeCountry'}} as |country|>
+      {{country.name}}
+    </PowerSelect>
+  </div>
+  <div class="page-actions">
+    <BsButton @type="primary" @buttonType="submit" class="btn-block-sm d-sm-block mr-sm-2">Save your preferences</BsButton>
+  </div>
+</BsForm>
