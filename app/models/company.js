@@ -7,5 +7,6 @@ const Validations = buildValidations({
 });
 
 export default Model.extend(Validations, {
-  name: DS.attr()
+  name: DS.attr(),
+  timezone: DS.attr()
 });

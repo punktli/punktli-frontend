@@ -15,5 +15,6 @@ export default Model.extend(Validations, {
   fullName: DS.attr(),
   email: DS.attr(),
   countryIso: DS.attr(),
+  timezone: DS.attr(),
   company: DS.belongsTo()
 });

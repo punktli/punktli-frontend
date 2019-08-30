@@ -1,14 +1,17 @@
 import Component from '@ember/component';
 import fetch from 'fetch';
 import ENV from 'punktli-frontend/config/environment';
+import moment from 'moment';
 
 export default Component.extend({
   countries: null,
+  timezones: null,
   host: ENV.APP.apiHostname,
   selectedCountry: null,
   init() {
     this._super(...arguments);
     this.getAllCountries();
+    this.timezones = moment.tz.names();
   },
   getAllCountries() {
     return fetch(`${this.host}/countries`).then(response => {
