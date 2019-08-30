@@ -4,6 +4,10 @@ import moment from 'moment';
 
 export default Component.extend({
   classNames: ['form-group'],
+  classNameBindings: ['isInvalid'],
+  isInvalid: computed('model.startTime', 'model.endTime', function() {
+    return !this.model.get('validations.isValid');
+  }),
   formattedTime: computed('value', {
     get(key) {
       return moment(this.value).format('HH:mm');

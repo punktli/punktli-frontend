@@ -1,0 +1,13 @@
+.time-input {
+  min-width: 106px;
+}
+
+.time-input.is-invalid {
+  background: none;
+  padding: 0.375rem 0.75rem;
+}
+
+.opening-invalid-feedback {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
