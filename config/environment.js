@@ -23,9 +23,9 @@ module.exports = function(environment) {
       includeLocales: ['fr', 'de', 'it']
     },
 
-    fastboot: {
-      hostWhitelist: ['punktli.com', 'www.punktli.com', 'staging.punktli.com', /^localhost:\d+$/]
-    },
+    // fastboot: {
+    //   hostWhitelist: ['punktli.com', 'www.punktli.com', 'staging.punktli.com', /^localhost:\d+$/]
+    // },
 
     APP: {
       // Here you can pass flags/options to your application instance

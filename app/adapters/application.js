@@ -42,6 +42,7 @@ export default DS.RESTAdapter.extend(DataAdapterMixin, {
 
       //Temporary hack: session doesn't save new token in localstorage on its own, doing it here to force it
       localStorage.setItem('ember_simple_auth-session', JSON.stringify(this.get('session').get('data')));
+      //document.cookie = 'ember_simple_auth-session=' + JSON.stringify(this.get('session').get('data'));
     }
 
     return payload;
