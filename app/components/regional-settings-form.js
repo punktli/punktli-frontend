@@ -8,10 +8,12 @@ export default Component.extend({
   timezones: null,
   host: ENV.APP.apiHostname,
   selectedCountry: null,
+  selectedTimezone: null,
   init() {
     this._super(...arguments);
     this.getAllCountries();
     this.timezones = moment.tz.names();
+    this.selectedTimezone = this.model.timezone;
   },
   getAllCountries() {
     return fetch(`${this.host}/countries`).then(response => {
@@ -35,6 +37,10 @@ export default Component.extend({
     changeCountry(country) {
       this.model.set('countryIso', country.id);
       this.set('selectedCountry', country);
+    },
+    changeTimezone(tz) {
+      this.model.set('timezone', tz);
+      this.set('selectedTimezone', tz);
     }
   }
 });
