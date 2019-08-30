@@ -9,6 +9,7 @@
       {{country.name}}
     </PowerSelect>
   </div>
+  <form.element @controlType="power-select" @label="Timezone" @property="timezone" @options={{this.timezones}} />
   <div class="page-actions">
     <BsButton @type="primary" @buttonType="submit" class="btn-block-sm d-sm-block mr-sm-2">Save your preferences</BsButton>
   </div>
