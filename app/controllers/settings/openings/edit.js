@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
+import { filterBy } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import { all } from 'rsvp';
 import moment from 'moment';
@@ -8,6 +9,7 @@ export default Controller.extend({
   currentUser: service('current-user'),
   queryParams: ['day'],
   day: null,
+  isError: false,
   isWorkingDay: computed('filteredOpenings', {
     get(key) {
       return this.filteredOpenings.length > 0;
@@ -44,6 +46,23 @@ export default Controller.extend({
       return openings;
     }
   }),
+  invalidOpenings: computed('model.@each.{startTime,endTime}', function() {
+    return this.model.filter(function(element) {
+      return !element.validations.isValid;
+    });
+  }),
+  displayError(reasons) {
+    this.set('isError', true);
+
+    //Transform all reasons into a cleaner string
+    const errorMessages = Object.entries(reasons).map(reason => {
+      const field = reason[0].replace(/^\w/, c => c.toUpperCase());
+      return `${field} ${reason[1]}.`;
+    });
+
+    this.set('errors', errorMessages);
+    setTimeout(() => { this.set('isError', false); }, 3000);
+  },
   actions: {
     saveTimeInModel(obj, property, newTime) {
       obj.set(property, newTime);
@@ -81,6 +100,8 @@ export default Controller.extend({
       });
       all(promises).then(() => {
         this.transitionToRoute('settings.openings');
+      }).catch((errors) => {
+        this.displayError(errors);
       });
     }
   }

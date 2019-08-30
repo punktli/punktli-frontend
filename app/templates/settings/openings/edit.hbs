@@ -5,6 +5,16 @@
 <h1 class="main">{{dayName}}</h1>
 <div class="row">
   <div class="col">
+    <BsAlert
+      @visible={{this.isError}}
+      @fade={{true}}
+      @type="danger"
+      @dismissible={{true}}
+      @onDismissed={{fn (mut this.isError) false}}>
+        {{#each this.errors as |error|}}
+          {{{error}}}<br />
+        {{/each}}
+    </BsAlert>
     <XToggle @value={{this.isWorkingDay}} @onToggle={{action (mut this.isWorkingDay)}} @showLabels={{true}} as
       |toggle|>
       <toggle.switch @theme='light' @onLabel='diff on' @offLabel='diff off' />
@@ -28,6 +38,11 @@
         <DeleteButton @onClick={{action "deleteSlot" op}} />
       </div>
     </div>
+    {{#if op.validations.errors}}
+      <div class="opening-invalid-feedback invalid-feedback d-block">
+        {{op.validations.messages}}
+      </div>
+    {{/if}}
     {{/each}}
     {{else}}
     <div class="row py-5">
@@ -40,7 +55,7 @@
     <BsButton @type="secondary" @onClick={{action "initNewSlot"}} class="btn-block-sm btn-tertiary">Add a new slot
     </BsButton>
     <div class="page-actions">
-      <BsButton @type="primary" @onClick={{action "saveOpenings"}} class="btn-block-sm d-sm-block mr-sm-2">Save the opening
+      <BsButton @type="primary" @disabled={{if this.invalidOpenings true false}} @onClick={{action "saveOpenings"}} class="btn-block-sm d-sm-block mr-sm-2">Save the opening
         hours</BsButton><LinkTo @route="settings.openings" class="btn btn-tertiary d-none d-sm-inline-block">Cancel</LinkTo>
     </div>
   </div>

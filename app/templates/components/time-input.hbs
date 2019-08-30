@@ -1,2 +1,2 @@
 <label for={{inputId}}>{{label}}</label>
-<Input @id={{inputId}} @type="time" @value={{this.formattedTime}} @size="5" class="form-control" @focus-out={{action "saveTime"}} />
+<Input @id={{inputId}} @type="time" @value={{this.formattedTime}} @size="5" class="form-control time-input {{if this.isInvalid "is-invalid"}}" @focus-out={{action "saveTime"}} />
