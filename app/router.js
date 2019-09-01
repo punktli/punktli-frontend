@@ -23,6 +23,7 @@ Router.map(function() {
   this.route('logout');
   this.route('patients', function() {
     this.route('new');
+    this.route('patient', {path: '/:patient_id'});
   });
   this.route('settings', function() {
     this.route('categories', function() {

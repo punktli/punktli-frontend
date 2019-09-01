@@ -2,6 +2,6 @@
 <LinkTo @route="patients.new" class="btn btn-secondary">Create a patient</LinkTo>
 <ul class="list-group">
 {{#each this.model as |patient|}}
-  <li class="list-group-item">{{patient.fullName}}</li>
+  <li class="list-group-item"><LinkTo @route="patients.patient" @model={{patient}}>{{patient.fullName}}</LinkTo></li>
 {{/each}}
 </ul>

@@ -2,8 +2,8 @@ import Route from '@ember/routing/route';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 export default Route.extend(AuthenticatedRouteMixin, {
-  model() {
-    return this.store.createRecord('patient');
+  model(params) {
+    return this.store.findRecord('patient', params.patient_id);
   },
   setupController: function(controller, model) {
     // Call _super for default behavior
@@ -12,8 +12,5 @@ export default Route.extend(AuthenticatedRouteMixin, {
     // Implement your custom setup after
     this.controllerFor('application').set('navigation', 'connected');
     this.controllerFor('application').set('showFooter', false);
-  },
-  deactivate() {
-    this.get('currentModel').deleteRecord();
   }
 });
