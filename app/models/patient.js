@@ -18,5 +18,6 @@ export default Model.extend(Validations, {
   countryIso: DS.attr(),
   email: DS.attr(),
   phone: DS.attr(),
+  birthday: DS.attr(),
   company: DS.belongsTo()
 });

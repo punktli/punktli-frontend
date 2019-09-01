@@ -1,0 +1,7 @@
+<BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveAddress"}} as |form|>
+  <form.element @controlType="text" @label="Address" @placeholder="" @property="address" />
+  <form.element @controlType="text" @label="Address (line 2)" @placeholder="" @property="address2" />
+  <form.element @controlType="text" @label="Zip code" @placeholder="10000" @property="zipCode" />
+  <form.element @controlType="text" @label="Locality" @placeholder="New York" @property="locality" />
+  <BsButton @defaultText="Save address" @type="primary" @buttonType="submit" />
+</BsForm>
