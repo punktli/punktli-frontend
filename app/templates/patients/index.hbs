@@ -1,10 +1,26 @@
-<h1>Your patients</h1>
-<LinkTo @route="patients.new" class="btn btn-secondary">Create a patient</LinkTo>
-<ul class="list-group">
-{{#each this.model as |patient|}}
-  <li class="list-group-item">
-    <LinkTo @route="patients.patient" @model={{patient}}><h4>{{patient.fullName}}</h4></LinkTo>
-    {{patient.birthday}}
-  </li>
-{{/each}}
-</ul>
+<div class="container container-sidebar mx-auto">
+  <TopBar>
+    <div>
+      {{!-- <LinkTo @route="settings.categories"><img src="/assets/icons/arrow-left.svg" alt="" width="24" height="24"></LinkTo> --}}
+    </div>
+    <div>
+      <LinkTo @route="patients.new"><img src="/assets/icons/plus.svg" alt="" width="24" height="24"></LinkTo>
+    </div>
+  </TopBar>
+  <div class="d-flex align-items-center justify-content-between">
+    <div>
+      <h1 class="main">Patients</h1>
+    </div>
+    <div>
+      <LinkTo @route="patients.new" @outline={{true}} class="btn btn-primary d-none d-lg-inline-block">New patient
+      </LinkTo>
+    </div>
+  </div>
+  <div class="list-group list-group-flush">
+    {{#each this.model as |patient|}}
+    <LinkTo @route="patients.patient" @model={{patient}} class="list-group-item list-group-item-action">
+      <PatientCard @patient={{patient}} />
+    </LinkTo>
+    {{/each}}
+  </div>
+</div>

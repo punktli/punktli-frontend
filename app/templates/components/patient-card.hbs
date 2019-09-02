@@ -1,3 +1,7 @@
-<div class="patient-name">
-  {{patient.fullName}}
+<div class="mr-2">
+  <Avatar @picture={{patient.picture}} @alt={{patient.fullName}} />
+</div>
+<div>
+  <div class="patient-name">{{patient.fullName}}</div>
+  <div class="patient-birthday">{{patient.birthday}}03.07.1984</div>
 </div>

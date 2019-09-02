@@ -66,3 +66,33 @@ a.nav-link {
 .nav-link.dropdown-toggle::after {
   content: none;
 }
+
+.list-group-item {
+  border: none;
+  padding: 11px 0px;
+}
+
+.list-group-item-action::after {
+  content: url(/assets/icons/chevron-right.svg);
+  position: absolute;
+  top: 20px;
+  right: 0px;
+}
+
+.list-group-item-action:hover {
+  background: #FFF;
+}
+
+@include media-breakpoint-up(lg) {
+  .list-group-item {
+    padding: 11px 15px;
+  }
+
+  .list-group-item-action::after {
+    right: 7px;
+  }
+
+  .list-group-item-action:hover {
+    background: $gray-100;
+  }
+}

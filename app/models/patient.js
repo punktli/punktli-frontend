@@ -19,5 +19,7 @@ export default Model.extend(Validations, {
   email: DS.attr(),
   phone: DS.attr(),
   birthday: DS.attr(),
-  company: DS.belongsTo()
+  picture: DS.attr(),
+  company: DS.belongsTo(),
+  events: DS.hasMany()
 });

@@ -1,0 +1,7 @@
+{{#if this.picture}}
+  <img src="picture" alt={{this.alt}} />
+{{else}}
+  <div class="bg-dark rounded-circle avatar-empty text-center text-uppercase text-white d-flex align-items-center">
+    <div class="avatar-initials">{{this.initials}}</div>
+  </div>
+{{/if}}
