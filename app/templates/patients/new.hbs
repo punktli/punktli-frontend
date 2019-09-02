@@ -1,23 +1,29 @@
-<h1>Your new patient is almost ready</h1>
-<BsAlert
-  @visible={{this.isError}}
-  @fade={{true}}
-  @type="danger"
-  @dismissible={{true}}
-  @onDismissed={{action "closeAlert"}}>
+<div class="container container-sidebar mx-auto">
+  <TopBar>
+    <div>
+      <LinkTo @route="patients"><img src="/assets/icons/x.svg" alt="" width="24" height="24"></LinkTo>
+    </div>
+    {{!-- <div>
+      <LinkTo @route="patients.new"><img src="/assets/icons/plus.svg" alt="" width="24" height="24"></LinkTo>
+    </div> --}}
+  </TopBar>
+  <h1 class="main">Create your patient</h1>
+  <BsAlert @visible={{this.isError}} @fade={{true}} @type="danger" @dismissible={{true}}
+    @onDismissed={{action "closeAlert"}}>
     {{{this.errorMessage}}}
-</BsAlert>
-<BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "createPatient"}} as |form|>
-  <h5>Identity</h5>
-  <form.element @controlType="text" @label="Full name" @placeholder="John Doe" @property="fullName" />
-  <h5>Address</h5>
-  <form.element @controlType="text" @label="Address" @placeholder="1234 Hollywood Blvd" @property="address" />
-  <form.element @controlType="text" @label="Address line 2" @placeholder="c/o Your company" @property="address2" />
-  <form.element @controlType="text" @label="Zip code" @placeholder="10000" @property="zipcode" />
-  <form.element @controlType="text" @label="Locality" @placeholder="Los Angeles" @property="locality" />
-  <h5>Contact</h5>
-  <form.element @controlType="email" @label="Email" @placeholder="john.doe@gmail.com" @property="email" />
-  <form.element @controlType="phone" @label="Phone" @placeholder="+1 234 567 890" @property="phone" />
+  </BsAlert>
+  <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "createPatient"}} as |form|>
+    <h5>Identity</h5>
+    <form.element @controlType="text" @label="Full name" @placeholder="John Doe" @property="fullName" />
+    <h5>Address</h5>
+    <form.element @controlType="text" @label="Address" @placeholder="1234 Hollywood Blvd" @property="address" />
+    <form.element @controlType="text" @label="Address line 2" @placeholder="c/o Your company" @property="address2" />
+    <form.element @controlType="text" @label="Zip code" @placeholder="10000" @property="zipcode" />
+    <form.element @controlType="text" @label="Locality" @placeholder="Los Angeles" @property="locality" />
+    <h5>Contact</h5>
+    <form.element @controlType="email" @label="Email" @placeholder="john.doe@gmail.com" @property="email" />
+    <form.element @controlType="phone" @label="Phone" @placeholder="+1 234 567 890" @property="phone" />
 
-  <BsButton @defaultText="Create" @type="primary" @buttonType="submit" />
-</BsForm>
+    <BsButton @defaultText="Create" @type="primary" @buttonType="submit" />
+  </BsForm>
+</div>
