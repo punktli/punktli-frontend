@@ -3,5 +3,15 @@
   <form.element @controlType="text" @label="Address (line 2)" @placeholder="" @property="address2" />
   <form.element @controlType="text" @label="Zip code" @placeholder="10000" @property="zipCode" />
   <form.element @controlType="text" @label="Locality" @placeholder="New York" @property="locality" />
+  <div class="form-group">
+    <label for="countrySelect">Country</label>
+    <PowerSelect
+      @options={{this.countries}}
+      @selected={{this.selectedCountry}}
+      @searchField="name"
+      @onchange={{action 'changeCountry'}} as |country|>
+      {{country.name}}
+    </PowerSelect>
+  </div>
   <BsButton @defaultText="Save address" @type="primary" @buttonType="submit" />
 </BsForm>

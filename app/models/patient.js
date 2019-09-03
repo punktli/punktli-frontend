@@ -16,10 +16,12 @@ export default Model.extend(Validations, {
   zipCode: DS.attr(),
   locality: DS.attr(),
   countryIso: DS.attr(),
+  country: DS.attr(),
   email: DS.attr(),
   phone: DS.attr(),
   birthday: DS.attr(),
   picture: DS.attr(),
+  isArchived: DS.attr(),
   company: DS.belongsTo(),
   events: DS.hasMany()
 });

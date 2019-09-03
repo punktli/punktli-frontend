@@ -10,6 +10,10 @@ h1.main-no-top-bar {
   margin-top: 78px;
 }
 
+h1.main-breadcrumb {
+  margin-top: 20px;
+}
+
 @include media-breakpoint-up(lg) {
   h1.main {
     margin-top: 60px;

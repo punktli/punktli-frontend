@@ -1,8 +1,53 @@
-<h1>{{this.model.fullName}}</h1>
-<h2>Address</h2>
-<div>
-{{this.model.address}},
-{{if this.model.address2 (concat this.model.address2 ", ")}}
-{{this.model.zipCode}} {{this.model.locality}}
+<BsModal @open={{this.confirmArchiveModal}} @position="center" @onSubmit={{action "archivePatient"}}
+  @onHidden={{action (mut confirmArchiveModal) false}} as |modal|>
+  <modal.header>
+    <h4 class="modal-title">Archive {{this.model.fullName}}</h4>
+  </modal.header>
+  <modal.body>
+    <p>If you click on Archive, your patient will be archived and you won't be able to create new events for him or her anymore.</p>
+  </modal.body>
+  <modal.footer>
+    <BsButton @type="danger" @onClick={{action modal.submit}}>Archive</BsButton>
+    <BsButton class="btn-tertiary" @onClick={{action modal.close}}>Cancel</BsButton>
+  </modal.footer>
+</BsModal>
+<div class="container container-sidebar mx-auto">
+  <TopBar>
+    <div>
+      <LinkTo @route="patients"><img src="/assets/icons/arrow-left.svg" alt="" width="24" height="24">
+      </LinkTo>
+    </div>
+    <div>
+      <BsDropdown as |dd|>
+        <dd.toggle>
+          <img src="/assets/icons/more-vertical.svg" width="24" height="24" alt="More actions" />
+        </dd.toggle>
+        <dd.menu @align="right" as |menu|>
+          <menu.item>
+            <a href="#" {{action (mut confirmArchiveModal) true}}>Archive</a>
+          </menu.item>
+        </dd.menu>
+      </BsDropdown>
+    </div>
+  </TopBar>
+  <Breadcrumb>
+      <li class="breadcrumb-item"><LinkTo @route="patients">All patients</LinkTo></li>
+      <li class="breadcrumb-item active">{{this.model.fullName}}</li>
+  </Breadcrumb>
+  <div class="d-flex align-items-center justify-content-between">
+    <div>
+      <h1 class="main-breadcrumb">{{this.model.fullName}}</h1>
+    </div>
+    <div>
+      <BsButton @type="danger" @outline={{true}} class="d-none d-lg-inline-block btn-sm"
+        @onClick={{action (mut confirmArchiveModal) true}}>Archive</BsButton>
+    </div>
+  </div>
+  <h2>Address</h2>
+  <div>
+    {{this.model.address}},
+    {{if this.model.address2 (concat this.model.address2 ", ")}}
+    {{this.model.zipCode}} {{this.model.locality}}, {{this.model.country}}
+  </div>
+  <LinkTo @route="patients.patient.address" @model={{this.model}}>Edit address</LinkTo>
 </div>
-<LinkTo @route="patients.patient.address" @model={{this.model}}>Edit address</LinkTo>
