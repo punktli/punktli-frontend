@@ -1,4 +1,4 @@
-<BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveAddress"}} as |form|>
+<BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "save"}} as |form|>
   <form.element @controlType="text" @label="Address" @placeholder="" @property="address" />
   <form.element @controlType="text" @label="Address (line 2)" @placeholder="" @property="address2" />
   <form.element @controlType="text" @label="Zip code" @placeholder="10000" @property="zipCode" />

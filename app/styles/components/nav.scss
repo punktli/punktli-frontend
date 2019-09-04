@@ -96,3 +96,16 @@ a.nav-link {
     background: $gray-100;
   }
 }
+
+.dropdown-more {
+  padding-right: 43px;
+}
+
+.dropdown-more::after {
+  content: url(/assets/icons/more-horizontal-white.svg);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline !important;
+  border: none;
+}

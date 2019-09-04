@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
   queryParams: ['returnURL'],
-  returnURL: 'patients',
+  returnURL: 'patients.patient',
   isError: false,
   displayError(reason) {
     this.set('isError', true);
@@ -16,9 +16,13 @@ export default Controller.extend({
   actions: {
     createPatient() {
       const returnURL = this.get('returnURL');
-      this.get('model').save().then(() => {
-        this.set('returnURL', 'patients');
-        this.transitionToRoute(returnURL);
+      this.get('model').save().then((patient) => {
+        this.set('returnURL', 'patients.patient');
+        if (returnURL == 'patients.patient') {
+          this.transitionToRoute(returnURL, patient);
+        } else {
+          this.transitionToRoute(returnURL);
+        }
       }).catch((reason) => {
         this.displayError(reason);
       });

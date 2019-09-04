@@ -32,6 +32,16 @@ label {
   }
 }
 
+.w-lg-auto {
+  width: 100%;
+}
+
+@include media-breakpoint-up(lg) {
+  .w-lg-auto {
+    width: auto;
+  }
+}
+
 .container-sidebar {
   max-width: 960px;
   padding: 0px;

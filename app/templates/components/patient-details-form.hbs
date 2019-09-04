@@ -1,0 +1,5 @@
+<BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "save"}} as |form|>
+  <form.element @controlType="text" @label="Full name" @placeholder="John Doe" @property="fullName" />
+  <form.element @controlType="date" @label="Birthday" @placeholder="03.07.1984" @property="birthday" @helpText="Use the format dd.mm.yyyy like 24.12.2001" />
+  <BsButton @defaultText="Save details" @type="primary" @buttonType="submit" />
+</BsForm>

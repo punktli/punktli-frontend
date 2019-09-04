@@ -16,11 +16,5 @@
       </LinkTo>
     </div>
   </div>
-  <div class="list-group list-group-flush">
-    {{#each this.model as |patient|}}
-    <LinkTo @route="patients.patient" @model={{patient}} class="list-group-item list-group-item-action">
-      <PatientCard @patient={{patient}} />
-    </LinkTo>
-    {{/each}}
-  </div>
+  <PatientsList @patients={{this.model}} />
 </div>

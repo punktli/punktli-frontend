@@ -26,7 +26,7 @@ export default Component.extend({
     });
   },
   actions: {
-    saveAddress() {
+    save() {
       const _this = this;
       this.model.save().then(function() {
         _this.onSave();
