@@ -2,19 +2,31 @@
   border-bottom: 1px solid $gray-200;
 }
 
-.navbar-light .navbar-nav .nav-link {
-  color: $black;
+.navbar-light {
+  padding: 0px 1rem;
+
+  .nav-link {
+    padding: 15px 0px !important;
+  }
+
+  .nav-item {
+    margin: 0px 15px;
+  }
+}
+
+.navbar-light .navbar-nav .nav-item.active {
+  border-bottom: 2px solid $black;
 }
 
 .navbar-light .navbar-nav .nav-link.active {
-  color: $primary;
+  color: $black;
 }
 
 .side-navigation {
   width: 200px;
   max-width: 200px;
   border-right: 1px solid $gray-200;
-  height: calc(100vh - 67px);
+  height: calc(100vh - 55px);
   padding-top: 20px;
 }
 .nav-pills .nav-link.active {
