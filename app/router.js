@@ -26,6 +26,7 @@ Router.map(function() {
     this.route('patient', {path: '/:patient_id'}, function() {
       this.route('address');
       this.route('details');
+      this.route('contact');
     });
   });
   this.route('settings', function() {

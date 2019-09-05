@@ -1,0 +1,13 @@
+<BsModal @open={{this.open}} @position="center" @onSubmit={{action (mut this.open) false}}
+  @onHidden={{action (mut open) false}} as |modal|>
+  <modal.header>
+    <h4 class="modal-title">Import patients</h4>
+  </modal.header>
+  <modal.body>
+    <p>If you want to import an existing list of patients, please send us an Excel or CSV file by email using the button below.</p>
+  </modal.body>
+  <modal.footer>
+    <a href="mailto:support@punktli.com?subject=Our%20patients%20to%20import" class="btn btn-primary">Send Excel or CSV file</a>
+    <BsButton class="btn-tertiary" @onClick={{action modal.close}}>Cancel</BsButton>
+  </modal.footer>
+</BsModal>

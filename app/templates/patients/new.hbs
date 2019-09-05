@@ -7,23 +7,25 @@
       <LinkTo @route="patients.new"><img src="/assets/icons/plus.svg" alt="" width="24" height="24"></LinkTo>
     </div> --}}
   </TopBar>
-  <h1 class="main">Create your patient</h1>
-  <BsAlert @visible={{this.isError}} @fade={{true}} @type="danger" @dismissible={{true}}
-    @onDismissed={{action "closeAlert"}}>
-    {{{this.errorMessage}}}
-  </BsAlert>
-  <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "createPatient"}} as |form|>
-    <h5>Identity</h5>
-    <form.element @controlType="text" @label="Full name" @placeholder="John Doe" @property="fullName" />
-    <h5>Address</h5>
-    <form.element @controlType="text" @label="Address" @placeholder="1234 Hollywood Blvd" @property="address" />
-    <form.element @controlType="text" @label="Address line 2" @placeholder="c/o Your company" @property="address2" />
-    <form.element @controlType="text" @label="Zip code" @placeholder="10000" @property="zipcode" />
-    <form.element @controlType="text" @label="Locality" @placeholder="Los Angeles" @property="locality" />
-    <h5>Contact</h5>
-    <form.element @controlType="email" @label="Email" @placeholder="john.doe@gmail.com" @property="email" />
-    <form.element @controlType="phone" @label="Phone" @placeholder="+1 234 567 890" @property="phone" />
-
-    <BsButton @defaultText="Create" @type="primary" @buttonType="submit" />
-  </BsForm>
+  <div class="row">
+    <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-0">
+      <Breadcrumb>
+        <li class="breadcrumb-item">
+          <LinkTo @route="patients">All patients</LinkTo>
+        </li>
+        <li class="breadcrumb-item active">New patient</li>
+      </Breadcrumb>
+      <h1 class="main-breadcrumb">Create a patient</h1>
+      <p>Fill the full name of your patient in the form below.</p>
+      <BsAlert @visible={{this.isError}} @fade={{true}} @type="danger" @dismissible={{true}}
+        @onDismissed={{action "closeAlert"}}>
+        {{{this.errorMessage}}}
+      </BsAlert>
+      <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "createPatient"}} as |form|>
+        <form.element @controlType="text" @label="Full name" @placeholder="John Doe" @property="fullName" />
+        <BsButton @defaultText="Save the patient" @type="primary" @buttonType="submit" class="btn-block-sm mr-sm-2" />
+        <LinkTo @route="patients" class="btn btn-tertiary d-none d-sm-inline-block">Cancel</LinkTo>
+      </BsForm>
+    </div>
+  </div>
 </div>

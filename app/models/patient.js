@@ -4,9 +4,14 @@ import { validator, buildValidations } from 'ember-cp-validations';
 
 const Validations = buildValidations({
   fullName: validator('presence', true),
-  email: [
-    validator('format', { type: 'email' })
-  ]
+  email: validator('format', {
+      type: 'email',
+      allowBlank: true
+    }),
+  birthday: validator('date', {
+    allowBlank: true,
+    before: 'now'
+  })
 });
 
 export default Model.extend(Validations, {

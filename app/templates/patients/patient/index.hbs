@@ -25,7 +25,21 @@
         </dd.toggle>
         <dd.menu @align="right" as |menu|>
           <menu.item>
-            <a href="#" {{action (mut confirmArchiveModal) true}}>Archive</a>
+            <menu.linkTo @route="index">Something</menu.linkTo>
+          </menu.item>
+          {{#if this.model.phone}}
+          <menu.item>
+            <a href="tel:{{this.model.phone}}" class="dropdown-item">Call</a>
+          </menu.item>
+          {{/if}}
+          {{#if this.model.email}}
+          <menu.item>
+            <a href="mailto:{{this.model.email}}" class="dropdown-item">Send an email</a>
+          </menu.item>
+          {{/if}}
+          <menu.divider></menu.divider>
+          <menu.item>
+            <a href="#" {{action (mut confirmArchiveModal) true}} class="dropdown-item text-danger">Archive</a>
           </menu.item>
         </dd.menu>
       </BsDropdown>
@@ -49,7 +63,7 @@
         <dd.menu as |menu|>
           {{#if this.model.phone}}
           <menu.item>
-            <menu.link-to @route="index">Call</menu.link-to>
+            <a href="tel:{{this.model.phone}}" class="dropdown-item">Call</a>
           </menu.item>
           {{/if}}
           {{#if this.model.email}}
@@ -65,29 +79,57 @@
       </BsDropdown><LinkTo @route="event.new.wizard" class="btn btn-primary">Book an event</LinkTo>
     </div>
   </div>
-  <div class="d-flex align-items-lg-center flex-column flex-lg-row mb-4">
-    <div class="mb-2 mr-auto">
+  <div class="d-flex align-items-center mb-4">
+    <div class="mr-auto">
       <h4>Details</h4>
       {{this.model.fullName}}<br />
       {{#if this.model.birthday}}
         {{format-date this.model.birthday}}<br />
       {{/if}}
     </div>
-    <div class="mb-2 w-lg-auto">
-      <LinkTo @route="patients.patient.details" @model={{this.model}} class="btn btn-tertiary btn-block-sm">Edit details</LinkTo>
+    <div class="">
+      <LinkTo @route="patients.patient.details" @model={{this.model}}>Edit</LinkTo>
     </div>
   </div>
-  <div class="d-flex align-items-lg-center flex-column flex-lg-row">
-    <div class="mb-2 mr-auto">
-      <h4>Address</h4>
-      {{this.model.address}}<br />
-      {{#if this.model.address2}}
-        {{this.model.address2}}<br />
+  <div class="d-flex align-items-center mb-4">
+    <div class="mr-auto">
+      <h4>Contact</h4>
+      {{#if this.model.email}}
+        <a href="mailto:{{this.model.email}}">{{this.model.email}}</a><br />
+        {{#if this.model.phone}}
+          <a href="tel:{{this.model.phone}}">{{this.model.phone}}</a>
+        {{/if}}
+      {{else}}
+        {{#if this.model.phone}}
+          <a href="tel:{{this.model.phone}}">{{this.model.phone}}</a>
+        {{else}}
+          Contact information aren't filled (yet).
+        {{/if}}
       {{/if}}
-      {{this.model.zipCode}} {{this.model.locality}}<br />{{this.model.country}}
     </div>
-    <div class="mb-2 w-lg-auto">
-      <LinkTo @route="patients.patient.address" @model={{this.model}} class="btn btn-tertiary btn-block-sm">Edit address</LinkTo>
+    <div>
+      <LinkTo @route="patients.patient.contact" @model={{this.model}}>Edit</LinkTo>
+    </div>
+  </div>
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h4>Address</h4>
+      {{#if this.model.locality}}
+        {{#if this.model.address}}
+          {{this.model.address}}<br />
+        {{/if}}
+        {{#if this.model.address2}}
+          {{this.model.address2}}<br />
+        {{/if}}
+        {{this.model.zipCode}} {{this.model.locality}}<br />{{this.model.country}}
+      {{else}}
+        <div>
+          <p>This patient has no address (yet).</p>
+        </div>
+      {{/if}}
+    </div>
+    <div>
+      <LinkTo @route="patients.patient.address" @model={{this.model}}>{{if this.model.locality 'Edit' 'Add an address'}}</LinkTo>
     </div>
   </div>
 </div>

@@ -1,0 +1,15 @@
+<div class="container container-sidebar mx-auto">
+  <TopBar>
+    <div>
+      <LinkTo @route="patients.patient" @model={{this.model}}><img src="/assets/icons/x.svg" alt="" width="24"
+          height="24"></LinkTo>
+    </div>
+  </TopBar>
+  <Breadcrumb>
+      <li class="breadcrumb-item"><LinkTo @route="patients">All patients</LinkTo></li>
+      <li class="breadcrumb-item"><LinkTo @route="patients.patient" @model={{this.model}}>{{this.title}}</LinkTo></li>
+      <li class="breadcrumb-item active" aria-current="page">Edit contact</li>
+  </Breadcrumb>
+  <h1 class="main-breadcrumb">Edit contact details</h1>
+  <PatientContactForm @model={{this.model}} @onSave={{action 'redirectToPatient'}} />
+</div>

@@ -1,11 +1,11 @@
 <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "save"}} as |form|>
-  <form.element @controlType="text" @label="Full name" @placeholder="John Doe" @property="fullName" />
-  <form.element @controlType="date" @label="Birthday" @placeholder="03.07.1984" @property="birthday" @helpText="Use the format dd.mm.yyyy like 24.12.2001" />
+  <form.element @controlType="email" @label="Email" @placeholder="john.doe@gmail.com" @property="email" />
+  <form.element @controlType="phone" @label="Phone" @placeholder="+41 79 123 45 67" @property="phone" />
   <BsButton @type="primary" @buttonType="submit" class="btn-block-sm mr-lg-2">
     {{#if form.isSubmitting}}
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
     {{/if}}
-    Save details
+    Save contact details
   </BsButton>
   <LinkTo @route="patients.patient" @model={{this.model}} class="btn btn-tertiary d-none d-sm-inline-block">Cancel</LinkTo>
 </BsForm>

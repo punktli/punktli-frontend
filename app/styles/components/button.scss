@@ -8,6 +8,13 @@
   padding: 5px 12px;
 }
 
+.btn-secondary {
+  color: $primary;
+}
+.btn-secondary:hover {
+  color: $primary;
+}
+
 .btn-tertiary {
   border: 1px solid $gray-200;
   color: $primary;

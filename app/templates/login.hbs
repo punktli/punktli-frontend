@@ -1,5 +1,16 @@
-<div class="row justify-content-center">
+<TopBar>
+  <div>
+    <LinkTo @route="patients.patient" @model={{this.model}}><img src="/assets/icons/x.svg" alt="" width="24"
+        height="24"></LinkTo>
+  </div>
+</TopBar>
+<div class="row justify-content-center mt-lg-5">
   <div class="col-md-6">
+    <Breadcrumb>
+      <li class="breadcrumb-item"><LinkTo @route="index">Homepage</LinkTo></li>
+      <li class="breadcrumb-item active" aria-current="page">Login</li>
+    </Breadcrumb>
+    <h1 class="main-breadcrumb">Log in to your account</h1>
     <BsAlert
       @visible={{this.isError}}
       @fade={{true}}
@@ -8,13 +19,12 @@
       @onDismissed={{action "resetError"}}>
         {{this.errorMessage.json.errors}}
     </BsAlert>
-    <h1>Log in to <span class="punktli-logo">PUNKTLI</span></h1>
     <BsForm @formLayout="vertical" @model={{this}} @onSubmit={{action "login"}} as |form|>
       <form.element @controlType="email" @label="Email" @placeholder="Email" @property="email" />
       <form.element @controlType="password" @label="Password" @placeholder="Password" @property="password" @helpText="Minimum 6 characters" />
-      <BsButton @defaultText="Login" @type="primary" @buttonType="submit" />
+      <BsButton @defaultText="Login" @type="primary" @buttonType="submit" class="btn-block-sm" />
     </BsForm>
     <p class="mt-3">Not yet registered? <LinkTo @route="join">Sign up now</LinkTo></p>
-    <p class="mt-3">Password forgotten? <LinkTo @route="index">Recover your password</LinkTo></p>
+    {{!-- <p class="mt-3">Password forgotten? <LinkTo @route="index">Recover your password</LinkTo></p> --}}
   </div>
 </div>

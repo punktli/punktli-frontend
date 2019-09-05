@@ -1,3 +1,4 @@
+<ModalImportPatients @open={{this.importModal}} @onClose={{action (mut this.importModal) false}} />
 <div class="container container-sidebar mx-auto">
   <TopBar>
     <div>
@@ -12,7 +13,7 @@
       <h1 class="main">Patients</h1>
     </div>
     <div>
-      <LinkTo @route="patients.new" @outline={{true}} class="btn btn-primary d-none d-lg-inline-block">New patient
+      <BsButton @onClick={{action (mut this.importModal) true}} class="mr-2">Import patients</BsButton><LinkTo @route="patients.new" @outline={{true}} class="btn btn-primary d-none d-lg-inline-block">New patient
       </LinkTo>
     </div>
   </div>

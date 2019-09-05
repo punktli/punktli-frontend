@@ -13,5 +13,11 @@
       {{country.name}}
     </PowerSelect>
   </div>
-  <BsButton @defaultText="Save address" @type="primary" @buttonType="submit" />
+  <BsButton @type="primary" @buttonType="submit" class="btn-block-sm mr-lg-2">
+    {{#if form.isSubmitting}}
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    {{/if}}
+    Save address
+  </BsButton>
+  <LinkTo @route="patients.patient" @model={{this.model}} class="btn btn-tertiary d-none d-sm-inline-block">Cancel</LinkTo>
 </BsForm>

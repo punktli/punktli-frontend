@@ -2,6 +2,14 @@
   border-bottom: 1px solid $gray-200;
 }
 
+.navbar-light .navbar-nav .nav-link {
+  color: $black;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+  color: $primary;
+}
+
 .side-navigation {
   width: 200px;
   max-width: 200px;
@@ -33,6 +41,10 @@ a.nav-link {
 
 .nav-pills .nav-link.active::after {
   content: url(/assets/icons/chevron-right-primary.svg);
+}
+
+nav.fixed-bottom {
+  border-top: 1px solid $gray-200;
 }
 
 .fixed-bottom {
@@ -102,10 +114,14 @@ a.nav-link {
 }
 
 .dropdown-more::after {
-  content: url(/assets/icons/more-horizontal-white.svg);
+  content: url(/assets/icons/more-horizontal-primary.svg);
   position: absolute;
   top: 10px;
   right: 10px;
   display: inline !important;
   border: none;
+}
+
+.logout-button-container {
+  margin-bottom: 50px;
 }
