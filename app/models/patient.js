@@ -28,5 +28,6 @@ export default Model.extend(Validations, {
   picture: DS.attr(),
   isArchived: DS.attr(),
   company: DS.belongsTo(),
-  events: DS.hasMany()
+  events: DS.hasMany(),
+  notes: DS.hasMany()
 });

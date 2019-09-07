@@ -81,6 +81,18 @@
   </div>
   <div class="d-flex align-items-center mb-4">
     <div class="mr-auto">
+      <h4>Notes</h4>
+      {{#each this.model.notes as |note|}}
+        <div>{{note.updatedAt}}</div>
+        <div class="mb-3">{{note.content}}</div>
+      {{/each}}
+    </div>
+    <div class="">
+      <LinkTo @route="patients.patient.details" @model={{this.model}}>Edit</LinkTo>
+    </div>
+  </div>
+  <div class="d-flex align-items-center mb-4">
+    <div class="mr-auto">
       <h4>Details</h4>
       {{this.model.fullName}}<br />
       {{#if this.model.birthday}}
