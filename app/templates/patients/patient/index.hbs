@@ -91,6 +91,9 @@
         No note on this patient (yet).
       </div>
     {{/each}}
+    <div class="mt-1">
+      <LinkTo @route="patients.patient.notes.new" class="btn btn-tertiary btn-block-sm">Add a new note</LinkTo>
+    </div>
   </div>
   <div class="d-flex align-items-center mb-4">
     <div class="mr-auto">
