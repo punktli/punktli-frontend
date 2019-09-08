@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
-export default DS.JSONSerializer.extend({
+export default DS.JSONAPISerializer.extend({
   extractErrors(store, typeClass, payload, id) {
     console.log('extract errors');
     console.log(typeClass);

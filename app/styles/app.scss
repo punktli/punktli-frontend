@@ -7,14 +7,16 @@
 @import "./components/avatar";
 @import "./components/breadcrumb";
 @import "./components/button";
+@import "./components/color-picker";
+@import "./components/editor";
 @import "./components/modal";
 @import "./components/nav";
-@import "./components/top-bar";
-@import "./components/color-picker";
+@import "./components/note-card";
 @import "./components/opening-hours-card";
 @import "./components/patient-card";
 @import "./components/power-select";
 @import "./components/time-input";
+@import "./components/top-bar";
 
 label {
   font-size: $font-size-sm;

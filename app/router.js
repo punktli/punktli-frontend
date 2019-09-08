@@ -27,6 +27,10 @@ Router.map(function() {
       this.route('address');
       this.route('details');
       this.route('contact');
+      this.route('notes', function() {
+        this.route('new');
+        this.route('edit', {path: '/:note_id'});
+      });
     });
   });
   this.route('settings', function() {

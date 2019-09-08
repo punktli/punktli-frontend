@@ -14,6 +14,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
     this.controllerFor('application').set('showFooter', false);
   },
   deactivate() {
-    this.get('currentModel').deleteRecord();
+    if (this.get('currentModel').get('hasDirtyAttributes')) {
+      this.get('currentModel').deleteRecord();
+    }
   }
 });

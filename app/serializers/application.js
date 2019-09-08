@@ -1,10 +1,8 @@
 import DS from 'ember-data';
 import { decamelize } from '@ember/string';
 
-export default DS.JSONSerializer.extend({
+export default DS.JSONAPISerializer.extend({
   keyForAttribute(attr, method) {
-    // console.log('Key for attribute');
-    // console.log(decamelize(attr));
     return decamelize(attr);
   },
   // keyForLink(key, kind) {
@@ -16,14 +14,14 @@ export default DS.JSONSerializer.extend({
   //   }
   //   return key;
   // },
-  keyForRelationship(key, relationship, method) {
+  //keyForRelationship(key, relationship, method) {
     // console.log('Key for relationship');
     // console.log(key);
     // console.log(relationship);
     // console.log(method);
-    if (relationship === 'belongsTo') {
-      key = key + '_id';
-    }
-    return key;
-  }
+    // if (relationship === 'belongsTo') {
+    //   key = key + '_id';
+    // }
+    // return key;
+ // }
 });

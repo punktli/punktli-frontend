@@ -1,0 +1,7 @@
+<div class="note mr-auto">
+  <div class="note-updated-at">{{format-relative note.updatedAt}}</div>
+  <div class="mb-3">{{markdown-to-html note.content}}</div>
+</div>
+<div class="">
+  <LinkTo @route="patients.patient.notes.edit" @model={{note}}>Edit</LinkTo>
+</div>
