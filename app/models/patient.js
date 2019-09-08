@@ -1,7 +1,6 @@
 import DS from 'ember-data';
 const { Model } = DS;
 import { validator, buildValidations } from 'ember-cp-validations';
-import { sort } from '@ember/object/computed';
 
 const Validations = buildValidations({
   fullName: validator('presence', true),

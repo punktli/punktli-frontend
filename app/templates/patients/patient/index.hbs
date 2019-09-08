@@ -84,7 +84,7 @@
   </div>
   <div class="mb-4">
     <h4>Notes</h4>
-    {{#each this.activeNotes as |note|}}
+    {{#each this.orderedNotes as |note|}}
       <NoteCard @note={{note}} />
     {{else}}
       <div>
