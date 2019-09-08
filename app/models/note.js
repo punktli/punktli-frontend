@@ -9,6 +9,7 @@ const Validations = buildValidations({
 
 export default Model.extend(Validations, {
   content: DS.attr(),
+  isArchived: DS.attr(),
   createdAt: DS.attr(),
   updatedAt: DS.attr(),
   patient: DS.belongsTo(),

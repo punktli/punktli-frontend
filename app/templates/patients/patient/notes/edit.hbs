@@ -1,15 +1,48 @@
+<BsModal @open={{this.confirmArchiveModal}} @position="center" @onSubmit={{action "archiveNote"}}
+  @onHidden={{action (mut confirmArchiveModal) false}} as |modal|>
+  <modal.header>
+    <h4 class="modal-title">Archive this note</h4>
+  </modal.header>
+  <modal.body>
+    <p>If you click on Archive, your note will be archived and you won't be able to edit it anymore. Are you sure you want to do this?</p>
+  </modal.body>
+  <modal.footer>
+    <BsButton @type="danger" @onClick={{action modal.submit}}>Archive</BsButton>
+    <BsButton class="btn-tertiary" @onClick={{action modal.close}}>Cancel</BsButton>
+  </modal.footer>
+</BsModal>
 <div class="container container-sidebar mx-auto">
   <TopBar>
     <div>
       <LinkTo @route="patients.patient" @model={{this.model.patient}}><img src="/assets/icons/x.svg" alt="" width="24"
           height="24"></LinkTo>
     </div>
+    <div>
+    <BsDropdown as |dd|>
+      <dd.toggle>
+        <img src="/assets/icons/more-vertical.svg" width="24" height="24" alt="More actions" />
+      </dd.toggle>
+      <dd.menu @align="right" as |menu|>
+        <menu.item>
+          <a href="#" {{action (mut confirmArchiveModal) true}} class="dropdown-item text-danger">Archive</a>
+        </menu.item>
+      </dd.menu>
+    </BsDropdown>
+  </div>
   </TopBar>
   <Breadcrumb>
       <li class="breadcrumb-item"><LinkTo @route="patients">All patients</LinkTo></li>
       <li class="breadcrumb-item"><LinkTo @route="patients.patient" @model={{this.model.patient}}>{{this.title}}</LinkTo></li>
       <li class="breadcrumb-item active" aria-current="page">Edit a note</li>
   </Breadcrumb>
-  <h1 class="main-breadcrumb">Edit a note</h1>
+  <div class="d-flex align-items-center justify-content-between">
+    <div>
+      <h1 class="main">Edit a note</h1>
+    </div>
+    <div>
+      <BsButton @type="danger" @outline={{true}} class="d-none d-lg-inline-block btn-sm"
+        @onClick={{action (mut confirmArchiveModal) true}}>Archive</BsButton>
+    </div>
+  </div>
   <NoteForm @model={{this.model}} @onSave={{action "redirectToPatient"}} />
 </div>

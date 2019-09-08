@@ -84,8 +84,12 @@
   </div>
   <div class="mb-4">
     <h4>Notes</h4>
-    {{#each this.model.notes as |note|}}
+    {{#each this.activeNotes as |note|}}
       <NoteCard @note={{note}} />
+    {{else}}
+      <div>
+        No note on this patient (yet).
+      </div>
     {{/each}}
   </div>
   <div class="d-flex align-items-center mb-4">
