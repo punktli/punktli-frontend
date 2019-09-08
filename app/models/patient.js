@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 const { Model } = DS;
 import { validator, buildValidations } from 'ember-cp-validations';
+import { sort } from '@ember/object/computed';
 
 const Validations = buildValidations({
   fullName: validator('presence', true),
@@ -27,7 +28,8 @@ export default Model.extend(Validations, {
   birthday: DS.attr(),
   picture: DS.attr(),
   isArchived: DS.attr(),
-  company: DS.belongsTo(),
+  company: DS.hasMany(),
   events: DS.hasMany(),
-  notes: DS.hasMany()
+  notes: DS.hasMany(),
+  //latestNotes: sort('notes', ['updatedAt:desc'])
 });

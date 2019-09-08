@@ -18,6 +18,10 @@
   border-bottom: 2px solid $black;
 }
 
+.fixed-bottom .navbar-nav .nav-item.active {
+  border-bottom: none;
+}
+
 .navbar-light .navbar-nav .nav-link.active {
   color: $black;
 }

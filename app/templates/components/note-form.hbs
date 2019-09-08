@@ -1,0 +1,16 @@
+<BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "save"}} as |form|>
+  <form.element @controlType="textarea" @label="Note" @placeholder="What's going on with this patient" @property="content" class="editor" />
+  <div class="editor-help text-right">
+    <b>*bold*</b>
+    <i>_italic_</i>
+    <s>~strike~</s>
+    <code>`Code`</code>
+  </div>
+  <BsButton @type="primary" @buttonType="submit" class="btn-block-sm mr-lg-2">
+    {{#if form.isSubmitting}}
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    {{/if}}
+    Save note
+  </BsButton>
+  <LinkTo @route="patients.patient" @model={{this.model.patient}} class="btn btn-tertiary d-none d-sm-inline-block">Cancel</LinkTo>
+</BsForm>

@@ -8,7 +8,7 @@ export default Controller.extend({
   displayError(reason) {
     this.set('isError', true);
     console.log(reason);
-    this.set('errorMessage', reason.errors.full_messages[0] || reason);
+    this.set('errorMessage', ((reason.errors) ? reason.errors[0] : reason));
     setTimeout(() => { this.hideError(); }, 3000);
   },
   hideError() {
@@ -34,7 +34,7 @@ export default Controller.extend({
             _this.displayError('There was an error when we tried to log you in. Try to log in from the <a href="/login">Login page</a>.');
           });
         }).catch((reason) => {
-          _this.displayError(reason);
+          _this.displayError('There was an error when creating your user. This email is already taken. Please select another one or go to the <a href="/login">Login page</a>.');
         });
       }).catch((reason) => {
         _this.set('isError', true);

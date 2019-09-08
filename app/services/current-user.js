@@ -9,7 +9,6 @@ export default Service.extend({
 
   load() {
     if (this.get('session.isAuthenticated')) {
-      //let userId = this.get('session').get('data.authenticated.data.id');
       let userId = this.get('session.data.authenticated.data.id');
       if (!isEmpty(userId)) {
         return this.get('store').findRecord('user', userId).then((user) => {

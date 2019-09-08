@@ -5,7 +5,7 @@ import { isPresent } from '@ember/utils';
 import DataAdapterMixin from "ember-simple-auth/mixins/data-adapter-mixin";
 import { isEmpty } from '@ember/utils';
 
-export default DS.RESTAdapter.extend(DataAdapterMixin, {
+export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   session: service(),
   host: ENV.APP.apiHostname,
   //host: 'http://localhost:3000',
