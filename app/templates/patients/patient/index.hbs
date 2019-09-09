@@ -79,7 +79,7 @@
             <a href="#" onClick={{action (mut confirmArchiveModal) true}} class="dropdown-item text-danger">Archive</a>
           </menu.item>
         </dd.menu>
-      </BsDropdown><LinkTo @route="event.new.wizard" class="btn btn-primary">Book an event</LinkTo>
+      </BsDropdown><LinkTo @route="event.new.wizard" @query={{hash patientId=this.model.id}} class="btn btn-primary">Book an event</LinkTo>
     </div>
   </div>
   <div class="mb-4">
