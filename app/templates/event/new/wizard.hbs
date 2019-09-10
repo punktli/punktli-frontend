@@ -65,5 +65,6 @@
       <LinkTo @route="event.new.schedule" class="btn btn-sm btn-secondary">Schedule your event</LinkTo>
     {{/if}}
     <hr class="mv-3" />
+    <BsButton @type="primary" @disabled={{this.isButtonDisabled}} @onClick={{action "saveEvent"}} class="btn-block-sm">Save event</BsButton>
   </div>
 </div>
