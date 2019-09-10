@@ -13,6 +13,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
     if (params.patientId) {
       return this.store.findRecord('patient', params.patientId).then(function(patient) {
         model.set('patient', patient);
+        if (!model.name) {
+          model.set('name', patient.get('fullName'));
+        }
         return model;
       });
     } else {
