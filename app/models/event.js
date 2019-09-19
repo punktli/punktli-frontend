@@ -1,5 +1,7 @@
 import DS from 'ember-data';
 const { Model } = DS;
+import { computed } from '@ember/object';
+import moment from 'moment';
 
 export default Model.extend({
   name: DS.attr(),
@@ -9,5 +11,8 @@ export default Model.extend({
   notes: DS.attr(),
   patient: DS.belongsTo(),
   company: DS.belongsTo(),
-  category: DS.belongsTo()
+  category: DS.belongsTo(),
+  day: computed('startTime', 'endTime', function() {
+    return (this.startTime ? moment(this.startTime).format('YYYY-MM-DD') : null);
+  })
 });

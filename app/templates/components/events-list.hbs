@@ -1,0 +1,13 @@
+{{#each this.eventsByDaySorted as |day|}}
+  <div class="mb-3">
+    <h4>{{day.day}}</h4>
+    {{#each day.events as |event|}}
+      <div class="mb-2">
+        <LinkTo @route="event.details" @model={{event}}>{{event.name}}</LinkTo><br/>
+        {{moment-format event.startTime 'DD.MM.YYYY HH:mm'}} - {{moment-format event.endTime 'DD.MM.YYYY HH:mm'}}
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <p>Welcome to your calendar my friend</p>
+{{/each}}

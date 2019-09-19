@@ -16,12 +16,5 @@
       <LinkTo @route="event.new.patient" class="btn btn-primary">New event</LinkTo>
     </div>
   </div>
-  {{#each this.model as |event|}}
-    <div class="mb-3">
-      <LinkTo @route="event.details" @model={{event}}>{{event.name}}</LinkTo><br/>
-      {{moment-format event.startTime 'DD.MM.YYYY HH:mm'}} - {{moment-format event.endTime 'DD.MM.YYYY HH:mm'}}
-    </div>
-  {{else}}
-    <p>Welcome to your calendar my friend</p>
-  {{/each}}
+  <EventsList @events={{this.model}} />
 </div>
