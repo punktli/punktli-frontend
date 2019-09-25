@@ -3,9 +3,8 @@ import { computed } from '@ember/object';
 import { sort } from '@ember/object/computed';
 
 export default Component.extend({
-  eventsSorting: null,
   eventsByDaySorting: null,
-  eventsByDay: computed('eventsSorted.[]', function() {
+  eventsByDay: computed('events.[]', function() {
     return this.events.reduce(function(groups, item) {
       const val = item['day']
       if (val) {
@@ -20,22 +19,23 @@ export default Component.extend({
     for (const day in this.eventsByDay) {
       events.push({
         day: day,
-        events: this.eventsByDay[day]
+        events: this.eventsByDay[day].sort(function(a, b) {
+          if (a.startTime < b.startTime)
+            return -1;
+          if (a.startTime > b.startTime)
+            return 1;
+          // a doit être égal à b
+          return 0;
+        })
       });
     }
 
     return events;
   }),
-  eventsSorted: sort('events', 'eventsSorting'),
+  //eventsSorted: sort('events', 'eventsSorting'),
   eventsByDaySorted: sort('eventsByDayArray', 'eventsByDaySorting'),
   init() {
     this._super(...arguments);
-    this.set('eventsSorting', ['startTime:asc']);
     this.set('eventsByDaySorting', ['day:asc']);
-    console.log(this.events);
-    console.log(this.eventsSorted);
-    console.log(this.eventsByDay);
-    console.log(this.eventsByDayArray);
-    console.log(this.eventsByDaySorted);
   }
 });

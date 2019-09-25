@@ -1,70 +1,86 @@
-<div class="row">
-  <div class="col">
-    <h1>Only a few steps before creating your event</h1>
-    <p>Add the details of your event so that you can save it.</p>
+<div class="container container-sidebar mx-auto">
+  <TopBar>
+    <div>
+      <LinkTo @route="calendar"><img src="/assets/icons/x.svg" alt="" width="24"
+          height="24"></LinkTo>
+    </div>
+    <div></div>
+  </TopBar>
+  <Breadcrumb>
+    <li class="breadcrumb-item"><LinkTo @route="calendar">Calendar</LinkTo></li>
+    <li class="breadcrumb-item active" aria-current="page">Create an event</li>
+  </Breadcrumb>
+  <div class="d-flex align-items-center justify-content-between">
+    <div>
+      <h1 class="main-breadcrumb">Only a few steps before creating your event</h1>
+    </div>
+    <div>
+      {{!-- <BsButton @type="danger" @outline={{true}} class="d-none d-lg-inline-block btn-sm"
+        @onClick={{action (mut confirmArchiveModal) true}}>Archive</BsButton> --}}
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-6">
-    {{#if model.patient}}
-      <div class="row align-items-center">
-        <div class="col-auto mr-auto">
-          {{model.patient.fullName}}<br /><LinkTo @route="event.new.patient">Edit</LinkTo>
-        </div>
-        <div class="col-auto">
-          <img src="/assets/icons/check.svg" width="36" height="36" alt="Completed" aria-label="Completed" />
-        </div>
-      </div>
-    {{else}}
-      <h6>Step 1</h6>
-      <h3>Patient</h3>
-      <p>Select an existing patient or create a new one.</p>
-      <LinkTo @route="event.new.patient" class="btn btn-sm btn-secondary">Select a patient</LinkTo>
-    {{/if}}
-    <hr class="mv-3" />
-    {{#if model.category}}
-      <div class="row align-items-center">
-        <div class="col-auto mr-auto">
-          <div class="d-flex flex-row align-items-center align-self-center">
-            <div class="mr-1">
-              <div class="category-color rounded-circle" style="background-color: {{model.category.color}}"></div>
-            </div>
-            <div class="mx-1">
-              {{model.category.name}}
-            </div>
-            <div class="mx-1">
-              {{model.category.duration}} minutes
-            </div>
+  <div class="row">
+    <div class="col-6">
+      {{#if model.patient}}
+        <div class="row align-items-center">
+          <div class="col-auto mr-auto">
+            {{model.patient.fullName}}<br /><LinkTo @route="event.new.patient">Edit</LinkTo>
           </div>
-          <div><LinkTo @route="event.new.category">Edit</LinkTo></div>
+          <div class="col-auto">
+            <img src="/assets/icons/check.svg" width="36" height="36" alt="Completed" aria-label="Completed" />
+          </div>
         </div>
-        <div class="col-auto">
-          <img src="/assets/icons/check.svg" width="36" height="36" alt="Completed" aria-label="Completed" />
+      {{else}}
+        <h6>Step 1</h6>
+        <h3>Patient</h3>
+        <p>Select an existing patient or create a new one.</p>
+        <LinkTo @route="event.new.patient" class="btn btn-sm btn-secondary">Select a patient</LinkTo>
+      {{/if}}
+      <hr class="mv-3" />
+      {{#if model.category}}
+        <div class="row align-items-center">
+          <div class="col-auto mr-auto">
+            <div class="d-flex flex-row align-items-center align-self-center">
+              <div class="mr-1">
+                <div class="category-color rounded-circle" style="background-color: {{model.category.color}}"></div>
+              </div>
+              <div class="mx-1">
+                {{model.category.name}}
+              </div>
+              <div class="mx-1">
+                {{model.category.duration}} minutes
+              </div>
+            </div>
+            <div><LinkTo @route="event.new.category">Edit</LinkTo></div>
+          </div>
+          <div class="col-auto">
+            <img src="/assets/icons/check.svg" width="36" height="36" alt="Completed" aria-label="Completed" />
+          </div>
         </div>
-      </div>
-    {{else}}
-      <h6>Step 2</h6>
-      <h3>Category</h3>
-      <p>What type of event will it be?</p>
-      <LinkTo @route="event.new.category" class="btn btn-sm btn-secondary">Define a category</LinkTo>
-    {{/if}}
-    <hr class="mv-3" />
-    {{#if model.startTime}}
-      <div class="row align-items-center">
-        <div class="col-auto mr-auto">
-          {{moment-format model.startTime 'D MMMM YYYY'}}<br />{{moment-format model.startTime 'HH:mm'}} - {{moment-format model.endTime 'HH:mm'}}<br /><LinkTo @route="event.new.schedule">Edit</LinkTo>
+      {{else}}
+        <h6>Step 2</h6>
+        <h3>Category</h3>
+        <p>What type of event will it be?</p>
+        <LinkTo @route="event.new.category" class="btn btn-sm btn-secondary">Define a category</LinkTo>
+      {{/if}}
+      <hr class="mv-3" />
+      {{#if model.startTime}}
+        <div class="row align-items-center">
+          <div class="col-auto mr-auto">
+            {{moment-format model.startTime 'D MMMM YYYY'}}<br />{{moment-format model.startTime 'HH:mm'}} - {{moment-format model.endTime 'HH:mm'}}<br /><LinkTo @route="event.new.schedule">Edit</LinkTo>
+          </div>
+          <div class="col-auto">
+            <img src="/assets/icons/check.svg" width="36" height="36" alt="Completed" aria-label="Completed" />
+          </div>
         </div>
-        <div class="col-auto">
-          <img src="/assets/icons/check.svg" width="36" height="36" alt="Completed" aria-label="Completed" />
-        </div>
-      </div>
-    {{else}}
-      <h6>Step 3</h6>
-      <h3>Schedule</h3>
-      <p>When should your event happen?</p>
-      <LinkTo @route="event.new.schedule" class="btn btn-sm btn-secondary">Schedule your event</LinkTo>
-    {{/if}}
-    <hr class="mv-3" />
-    <BsButton @type="primary" @disabled={{this.isButtonDisabled}} @onClick={{action "saveEvent"}} class="btn-block-sm">Save event</BsButton>
+      {{else}}
+        <h6>Step 3</h6>
+        <h3>Schedule</h3>
+        <p>When should your event happen?</p>
+        <LinkTo @route="event.new.schedule" class="btn btn-sm btn-secondary">Schedule your event</LinkTo>
+      {{/if}}
+      <hr class="mv-3" />
+      <BsButton @type="primary" @disabled={{this.isButtonDisabled}} @onClick={{action "saveEvent"}} class="btn-block-sm">Save event</BsButton>
+    </div>
   </div>
 </div>
