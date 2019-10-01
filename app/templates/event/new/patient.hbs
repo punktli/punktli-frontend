@@ -16,11 +16,5 @@
       <LinkTo @route="patients.new" @query={{hash returnURL="event.new.patient"}} class="btn btn-secondary">Create a patient</LinkTo>
     </div>
   </div>
-  <div class="list-group">
-  {{#each patients as |patient|}}
-    <PatientCard @patient={{patient}} href="#" onclick={{action "selectPatient" patient}}></PatientCard>
-  {{else}}
-    No patient yet, <LinkTo @route="patients.new">create your first patient</LinkTo>.
-  {{/each}}
-  </div>
+  <PatientsList @patients={{this.patients}} @onSelect={{action "selectPatient"}} />
 </div>

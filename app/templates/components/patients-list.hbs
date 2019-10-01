@@ -1,7 +1,11 @@
 {{#each this.activePatients as |patient|}}
-<LinkTo @route="patients.patient" @model={{patient}} class="list-group-item list-group-item-action">
-  <PatientCard @patient={{patient}} />
-</LinkTo>
+  {{#if this.onSelect}}
+    <PatientCard @patient={{patient}} @onSelect={{action "clickPatient"}} class="list-group-item list-group-item-action" />
+  {{else}}
+    <LinkTo @route="patients.patient" @model={{patient}} class="list-group-item list-group-item-action">
+      <PatientCard @patient={{patient}} />
+    </LinkTo>
+  {{/if}}
 {{else}}
 <p>You've got no patient yet. <LinkTo @route="patients.new">Create your first patient</LinkTo></p>
 {{/each}}
