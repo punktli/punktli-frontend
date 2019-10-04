@@ -100,28 +100,34 @@ nav.fixed-bottom {
   padding: 11px 0px;
 }
 
-.list-group-item-action::after {
-  content: url(/assets/icons/chevron-right.svg);
-  position: absolute;
-  top: 20px;
-  right: 0px;
+// .list-group-item-action::after {
+//   content: url(/assets/icons/chevron-right.svg);
+//   position: absolute;
+//   top: 20px;
+//   right: 0px;
+// }
+
+.list-group-item-action {
+  background-image: url(/assets/icons/chevron-right.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
 }
 
-.list-group-item-action:hover {
-  background: #FFF;
-}
+// .list-group-item-action:hover {
+//   background: #FFF;
+// }
 
 @include media-breakpoint-up(lg) {
   .list-group-item {
     padding: 11px 15px;
   }
 
-  .list-group-item-action::after {
-    right: 7px;
+  .list-group-item-action {
+    background-position: calc(100% - 8px) center;
   }
 
   .list-group-item-action:hover {
-    background: $gray-100;
+    background-color: $gray-100;
   }
 }
 
