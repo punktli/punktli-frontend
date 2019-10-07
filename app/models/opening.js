@@ -9,8 +9,7 @@ const Validations = buildValidations({
 });
 
 export default Model.extend(Validations, {
-  day: DS.attr(),
   startTime: DS.attr(),
   endTime: DS.attr(),
-  company: DS.belongsTo(),
+  openingDay: DS.belongsTo()
 });

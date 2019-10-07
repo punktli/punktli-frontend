@@ -4,11 +4,16 @@ import { inject as service } from '@ember/service';
 import { isPresent } from '@ember/utils';
 import DataAdapterMixin from "ember-simple-auth/mixins/data-adapter-mixin";
 import { isEmpty } from '@ember/utils';
+import { underscore } from '@ember/string';
+import { pluralize } from 'ember-inflector';
 
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   session: service(),
   host: ENV.APP.apiHostname,
   //host: 'http://localhost:3000',
+  pathForType(type) {
+    return underscore(pluralize(type));
+  },
   authorize(xhr) {
     if (this.get('session.data.authenticated.data.access_token')) {
       //let access_token = this.get('session.data.authenticated.data.access-token');

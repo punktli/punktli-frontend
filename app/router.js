@@ -39,7 +39,7 @@ Router.map(function() {
       this.route('new');
     });
     this.route('openings', function() {
-      this.route('edit');
+      this.route('edit', { path: '/:opening_day_id' });
     });
     this.route('regional');
   });

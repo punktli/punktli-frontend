@@ -1,10 +1,14 @@
 import DS from 'ember-data';
 import { decamelize } from '@ember/string';
+import { underscore } from '@ember/string';
 
 export default DS.JSONAPISerializer.extend({
-  keyForAttribute(attr, method) {
+  keyForAttribute(attr) {
     return decamelize(attr);
   },
+  keyForRelationship(key) {
+    return underscore(key);
+  }
   // keyForLink(key, kind) {
   //   console.log('Key for link');
   //   console.log(key);

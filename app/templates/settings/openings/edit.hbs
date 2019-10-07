@@ -2,7 +2,7 @@
 <TopBar>
   <LinkTo @route="settings.openings"><img src="/assets/icons/x.svg" alt="" width="24" height="24"></LinkTo>
 </TopBar>
-<h1 class="main">{{dayName}}</h1>
+<h1 class="main">{{this.model.dayName}}</h1>
 <div class="row">
   <div class="col">
     <BsAlert
@@ -21,7 +21,7 @@
       <toggle.label>Working day</toggle.label>
     </XToggle>
     {{#if this.isWorkingDay}}
-    {{#each filteredOpenings as |op index|}}
+    {{#each this.model.sortedOpenings as |op index|}}
     <div class="d-flex">
       <div class="mr-2">
         <TimeInput @value={{op.startTime}} @label="From" @inputId={{concat "opening-from-" index}} @model={{op}}

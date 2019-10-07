@@ -9,29 +9,29 @@ export default Route.extend(AuthenticatedRouteMixin, {
     this._super(controller, model);
 
     //Spread opening hours by day
-    const monday = [],
-    tuesday = [],
-    wednesday = [],
-    thursday = [],
-    friday = [],
-    saturday = [],
-    sunday = [];
+    let monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday,
+    saturday,
+    sunday;
 
     model.forEach(opening => {
       if (opening.day === 1) {
-        monday.push(opening);
+        monday = opening;
       } else if (opening.day === 2) {
-        tuesday.push(opening);
+        tuesday = opening;
       } else if (opening.day === 3) {
-        wednesday.push(opening);
+        wednesday = opening;
       } else if (opening.day === 4) {
-        thursday.push(opening);
+        thursday = opening;
       } else if (opening.day === 5) {
-        friday.push(opening);
+        friday = opening;
       } else if (opening.day === 6) {
-        saturday.push(opening);
-      } else if (opening.day === 7) {
-        sunday.push(opening);
+        saturday = opening;
+      } else if (opening.day === 0) {
+        sunday = opening;
       }
     });
 

@@ -1,7 +1,7 @@
 <div class="row d-flex">
   <div class="flex-grow-1 col">
-    <h3>{{dayName}}</h3>
-    {{#each openingHours as |opening|}}
+    <h3>{{this.openingDay.dayName}}</h3>
+    {{#each this.openingDay.sortedOpenings as |opening|}}
       <div class="opening-hours-schedules">
         {{moment-format opening.startTime "HH:mm"}} - {{moment-format opening.endTime  "HH:mm"}}
       </div>
@@ -27,6 +27,6 @@
     {{/each}}
   </div>
   <div class="align-self-center pr-3">
-    <LinkTo @route="settings.openings.edit" @query={{hash day=day}}>Edit</LinkTo>
+    <LinkTo @route="settings.openings.edit" @model={{this.openingDay}}>Edit</LinkTo>
   </div>
 </div>
