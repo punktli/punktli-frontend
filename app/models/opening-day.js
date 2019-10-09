@@ -4,11 +4,11 @@ import { computed } from '@ember/object';
 import { sort } from '@ember/object/computed';
 
 export default Model.extend({
-  openingsSorting: ['startTime:asc'],
   day: DS.attr(),
   company: DS.belongsTo(),
   openings: DS.hasMany(),
   sortedOpenings: sort('openings', 'openingsSorting'),
+  openingsSorting: null,
   dayName: computed('day', function() {
     let dayName = 'Sunday';
     if (this.day === 1) {
@@ -26,5 +26,8 @@ export default Model.extend({
     }
 
     return dayName;
-  })
+  }),
+  init() {
+    this.set('openingsSorting', ['startTime:asc']);
+  }
 });

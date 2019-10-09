@@ -1,0 +1,9 @@
+<label for={{inputId}}>{{label}}</label>
+<div class="d-flex">
+  <div class="mr-2 flex-grow-1">
+    <Input @id={{inputId}} @type="date" @value={{this.formattedDate}} @size="5" class="form-control time-input {{if this.isInvalid "is-invalid"}}" @focus-out={{action "saveTime"}} />
+  </div>
+  <div class="">
+    <Input @id={{concat inputId '-time'}} @type="time" @value={{this.formattedTime}} @size="5" class="form-control time-input {{if this.isInvalid "is-invalid"}}" @focus-out={{action "saveTime"}} />
+  </div>
+</div>
