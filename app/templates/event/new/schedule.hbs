@@ -20,9 +20,9 @@
   @onDismissed={{action "closeAlert"}}>
     {{{this.errorMessage}}}
 </BsAlert>
-<DatetimeInput @value={{this.model.startTime}} @label="From" @onChange={{fn (mut this.model.startTime)}} />
-<DatetimeInput @value={{this.model.endTime}} @label="To" @onChange={{fn (mut this.model.endTime)}} />
-<LinkTo @route="event.new.wizard" class="btn btn-primary">Save schedule</LinkTo>
+<DatetimeInput @value={{this.model.startTime}} @label="From" @isValid={{this.model.validations.isValid}} @onChange={{fn (mut this.model.startTime)}} />
+<DatetimeInput @value={{this.model.endTime}} @label="To" @isValid={{this.model.validations.isValid}} @onChange={{fn (mut this.model.endTime)}} />
+<BsButton @onClick={{action "saveEvent"}} @type="primary">Save schedule</BsButton>
 {{!-- <DatetimeInput @value={{op.startTime}} @label="From" @inputId={{concat "opening-from-" index}} @model={{op}} @property="startTime" @focusOut={{action "saveTimeInModel"}} /> --}}
 {{!-- <BsForm @formLayout="vertical" @model={{this.model}} @onSubmit={{action "saveEvent"}} as |form|>
   <form.element @controlType="date" @label="From" @placeholder="03.07.1984" @property="startTime" @helpText="Use the format dd.mm.yyyy hh:mm like 24.12.2001 13:25" />

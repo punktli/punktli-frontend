@@ -4,6 +4,10 @@ import moment from 'moment';
 
 export default Component.extend({
   classNames: ['form-group'],
+  classNameBindings: ['isInvalid'],
+  isInvalid: computed('isValid', function() {
+    return !this.isValid;
+  }),
   formattedDate: computed('value', {
     get(key) {
       return moment(this.value).format('YYYY-MM-DD');

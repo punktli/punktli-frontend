@@ -4,8 +4,8 @@ import { computed } from '@ember/object';
 export default Controller.extend({
   queryParams: ['patientId'],
   patientId: null,
-  isButtonDisabled: computed('model.patient', 'model.category', 'model.startTime', function() {
-    return !(this.model.patient && this.model.category && this.model.startTime);
+  isButtonDisabled: computed('model.patient.fullName', 'model.category.duration', 'model.startTime', 'model.isDateValidated', function() {
+    return !(this.model.patient.get('fullName') && this.model.category.get('duration') && this.model.startTime && this.model.isDateValidated);
   }),
   actions: {
     saveEvent() {

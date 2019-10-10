@@ -5,6 +5,7 @@ import moment from 'moment';
 export default Component.extend({
   classNames: ['form-group'],
   classNameBindings: ['isInvalid'],
+  isValid: true,
   isInvalid: computed('model.startTime', 'model.endTime', function() {
     return !this.model.get('validations.isValid');
   }),

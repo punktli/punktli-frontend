@@ -7,11 +7,5 @@ export default Route.extend(AuthenticatedRouteMixin, {
   },
   setupController(controller, model) {
     this._super(controller, model);
-
-    if (!model.startTime) {
-      this.store.findAll('slot').then((slots) => {
-        model.set('startTime', slots.firstObject.startTime);
-      });
-    }
   }
 });

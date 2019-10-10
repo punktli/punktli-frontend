@@ -1,9 +1,8 @@
 import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
   isError: false,
-  startTime: null,
-  endTime: null,
   displayError(reason) {
     this.set('isError', true);
     this.set('errorMessage', reason.errors.full_messages[0] || reason);
@@ -14,6 +13,7 @@ export default Controller.extend({
   },
   actions: {
     saveEvent() {
+      this.model.set('isDateValidated', true);
       this.transitionToRoute('event.new.wizard');
     },
     closeAlert() {
